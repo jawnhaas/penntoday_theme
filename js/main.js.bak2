@@ -1,0 +1,109 @@
+'use strict';
+
+var _slider = require('./modules/slider');
+
+var _slider2 = _interopRequireDefault(_slider);
+
+var _header = require('./modules/header');
+
+var _header2 = _interopRequireDefault(_header);
+
+var _search = require('./modules/search');
+
+var _search2 = _interopRequireDefault(_search);
+
+var _articleNav = require('./modules/article-nav');
+
+var _articleNav2 = _interopRequireDefault(_articleNav);
+
+var _toggleNav = require('./modules/toggle-nav');
+
+var _toggleNav2 = _interopRequireDefault(_toggleNav);
+
+var _infiniteScroll = require('./modules/infinite-scroll');
+
+var _infiniteScroll2 = _interopRequireDefault(_infiniteScroll);
+
+var _video = require('./modules/video');
+
+var _video2 = _interopRequireDefault(_video);
+
+var _newsletter = require('./modules/newsletter');
+
+var _newsletter2 = _interopRequireDefault(_newsletter);
+
+var _articleShare = require('./modules/article-share');
+
+var _articleShare2 = _interopRequireDefault(_articleShare);
+
+var _datepicker = require('./modules/datepicker');
+
+var _datepicker2 = _interopRequireDefault(_datepicker);
+
+var _toggleDropdown = require('./modules/toggle-dropdown');
+
+var _toggleDropdown2 = _interopRequireDefault(_toggleDropdown);
+
+var _insidePennScroll = require('./modules/inside-penn-scroll');
+
+var _insidePennScroll2 = _interopRequireDefault(_insidePennScroll);
+
+var _articleGallery = require('./modules/article-gallery');
+
+var _articleGallery2 = _interopRequireDefault(_articleGallery);
+
+var _modernizrDetect = require('./modules/modernizr-detect');
+
+var _modernizrDetect2 = _interopRequireDefault(_modernizrDetect);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// Responsive image support
+window.lazySizesConfig = window.lazySizesConfig || {};
+// lazysizes loads all elements after the window onload event
+window.lazySizesConfig.preloadAfterLoad = true;
+
+/**
+ * Create and initialize global site instance when document is ready.
+ */
+(function ($) {
+  $(document).ready(function () {
+    new _modernizrDetect2.default();
+    new _header2.default();
+
+    if (location.pathname.indexOf('/search/') >= 0) {
+      new _search2.default();
+    }
+    if (location.pathname.indexOf('/article/') >= 0) {
+      new _articleShare2.default('.article__body > *:not(".article__popular-stories, .article__reading-list")');
+      new _articleGallery2.default('.img-container');
+    }
+    if (location.pathname.indexOf('/inside-penn/') >= 0) {
+      new _insidePennScroll2.default();
+    }
+    if ($('.js-filter-toggle').length) {
+      new _toggleDropdown2.default('.js-filter-toggle');
+    }
+    if ($('.slider').length) {
+      new _slider2.default();
+    }
+    if ($('.article-nav').length) {
+      new _articleNav2.default();
+    }
+    if ($('.js-toggle-nav')) {
+      new _toggleNav2.default('.js-toggle-nav');
+    }
+    if ($('.js-infinite-scroll').length) {
+      new _infiniteScroll2.default();
+    }
+    if ($('.video-container').length) {
+      new _video2.default();
+    }
+    if ($('.newsletter-callout').length) {
+      new _newsletter2.default();
+    }
+    if ($('.datepicker').length) {
+      new _datepicker2.default();
+    }
+  });
+})(jQuery);

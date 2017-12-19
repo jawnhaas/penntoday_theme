@@ -1,0 +1,139 @@
+/* ==========================================================================
+
+   Components -> Reading List
+
+   ========================================================================== */
+
+/* General Reading List and Popular Stories Styles
+   ========================================================================== */
+
+.article__body {
+  .article__sidebar {
+    @include padding(30px);
+    border: 2px solid $c-blue--dark;
+    color: $c-blue--dark;
+    box-shadow: 5px 5px 0px 0 $c-blue--dark;
+
+    @include mq($bp-mobile-horiz) {
+      @include margin(25px x 25px 25px);
+      float: right;
+      width: 50%;
+    }
+
+    @include mq($bp-tablet-vert) {
+      @include padding(40px);
+    }
+
+    @include mq($bp-tablet-horiz) {
+      width: 40%;
+    }
+  }
+
+  .article__sidebar__head {
+    @include margin(x x 20px x);
+    @extend %f-smallcaps;
+    @include haptik(bold);
+    font-size: $f-size-micro;
+    color: $c-red--dark;
+
+    @include mq($bp-tablet-horiz) {
+      font-size: $f-size-mini;
+    }
+  }
+
+  .article__sidebar__list {
+    @extend %f-list;
+    @include haptik(regular);
+    font-size: $f-size-mini;
+    line-height: $f-line-height-mini--sans;
+
+    @include mq($bp-tablet-horiz) {
+      font-size: $f-size-base;
+      line-height: $f-line-height-base--sans;
+    }
+  }
+
+  .article__sidebar__link {
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 0 0 $c-red;
+    transition: all 0.2s $easeOutQuad;
+
+    &:hover,
+    &:focus {
+      box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 1px 0 $c-red;
+      color: $c-blue--dark;
+    }
+  }
+}
+
+/* Reading List & Popular Stories -> Reversed
+   ========================================================================== */
+
+.article--dark {
+  .article__body {
+    .article__sidebar {
+      box-shadow: 5px 5px 0px 0 $c-neon-yellow;
+      border-color: $c-neon-yellow;
+    }
+
+    .article__sidebar__head {
+      color: $c-neon-yellow;
+    }
+
+    .article__sidebar__item {
+      &::before {
+        color: $c-neon-yellow;
+      }
+    }
+
+
+    .article__sidebar__link {
+      color: $c-white;
+      box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 0 0 $c-neon-yellow;
+      transition: all 0.2s $easeOutQuad;
+
+      &:hover,
+      &:focus {
+        box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 1px 0 $c-neon-yellow;
+        color: $c-white;
+      }
+    }
+
+  } //article__body
+
+  .article__reading-list {
+    .reading-list__item {
+      &::before {
+        background-color: $c-neon-yellow;
+      }
+    }
+  }
+
+}
+
+/* Reading List -> Specific Reading List Styles
+   ========================================================================== */
+
+.article__body {
+  .reading-list__item {
+    position: relative;
+    @include margin(x x 15px 30px);
+
+    &::before {
+      @include pseudo;
+      display: inline-block;
+      @include size(20px, 2px);
+      @include margin(x 10px 6px -30px);
+      background-color: $c-red;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mq($bp-tablet-horiz) {
+      @include margin(x x 30px 40px);
+    }
+  }
+}
+
+

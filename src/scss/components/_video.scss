@@ -1,0 +1,224 @@
+/* ==========================================================================
+
+   Components -> Video
+
+   ========================================================================== */
+
+.video-container {
+  position: relative;
+
+  .article__body & {
+    margin-bottom: 35px;
+  }
+
+  .play-icon {
+    @include size(45px);
+    margin-left: 4px;
+
+    path {
+      stroke-width: 0;
+    }
+  }
+
+  .pause-icon {
+    width: 20px;
+    margin: 0 auto;
+  }
+
+  .play-icon,
+  .pause-icon {
+    path {
+      fill: $c-white;
+    }
+  }
+
+  @include mq($bp-mobile-horiz) {
+    @include margin(20px auto x);
+    @include padding(0 20px 20px);
+  }
+
+  video {
+    @extend %l-base__video;
+  }
+
+  .pause-icon {
+    display: none;
+  }
+
+  &.js-video--play {
+    .play-icon {
+      display: none;
+    }
+
+    .pause-icon {
+      display: block;
+    }
+
+    .video-controls {
+      display: none;
+    }
+
+    &.js-video--show-controls .video-controls {
+      display: block;
+    }
+  }
+
+  .video-controls {
+    @include size(80px);
+    border-radius: 50%;
+    background-color: $c-blue--dark;
+    z-index: 2;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+
+    .featured-media & {
+      @include absolute(calc(50% - 40px) x x calc(50% - 40px));
+    }
+
+    &:hover {
+      transform: translate(0);
+    }
+  }
+
+  .featured-media & {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.no-js {
+  .js-play-video, .js-video {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+
+   Components -> Simple Video
+
+   ========================================================================== */
+
+.simple-video {
+  @include mq($bp-tablet-horiz) {
+    display: flex;
+  }
+
+  .featured-media {
+    @include margin(x x 0 x);
+
+    @include mq($bp-tablet-horiz) {
+      @include margin(x 30px x x);
+    }
+
+    .video-container {
+      width: 100%;
+    }
+  }
+}
+
+  .simple-video__caption {
+    @include padding(20px x 10px x);
+    border-bottom: 1px solid $c-silver--light;
+
+    @include mq($bp-tablet-horiz) {
+      width: 25%;
+      @include padding(0);
+      border: 0;
+    }
+
+    p {
+     @extend %f-caption__sans;
+     @include margin(0 0 10px 0);
+     max-width: none;
+    }
+  }
+
+/* Simple Video -> Reversed
+   ========================================================================== */
+
+.article--dark {
+  .simple-video__caption {
+    border-color: $c-blue--desat;
+  }
+}
+
+/* ==========================================================================
+
+   Components -> Full bleed video
+
+   ========================================================================== */
+
+.article__video--fullbleed {
+
+  .simple-video {
+    display: block;
+
+    .featured-media,
+    .simple-embed-video__container {
+      width: 100vw !important;
+      max-width: none !important;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      padding: 20px;
+      box-shadow: none;
+      border: none;
+    }
+
+    .simple-video__caption {
+      width: 100%;
+      @include margin(0);
+      padding: 0 0 8px;
+      border-bottom: 1px solid $c-silver--light;
+    }
+  }
+}
+
+/* ==========================================================================
+
+   Components -> Video Embed
+
+   ========================================================================== */
+
+.simple-embed-video {
+  position: relative;
+
+  @include mq($bp-tablet-horiz) {
+    display: flex;
+  }
+}
+
+.simple-embed-video__container {
+  position: relative;
+  width: 100%;
+  margin-right: 30px;
+  box-shadow: 6px 6px 0px 0 $c-blue--dark;
+
+  @include mq($bp-tablet-horiz) {
+    box-shadow: 8px 8px 0px 0 $c-blue--dark;
+  }
+
+  .article--dark & {
+    box-shadow: 6px 6px 0px 0 $c-blue--desat;
+
+    @include mq($bp-tablet-horiz) {
+      box-shadow: 8px 8px 0px 0 $c-blue--desat;
+    }
+  }
+}
+
+.responsive-video {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+.responsive-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,202 @@
+/* ==========================================================================
+
+   Layout -> Footer
+
+   ========================================================================== */
+
+.footer {
+  @include haptik(regular);
+  @include padding(30px x 0);
+  color: $c-white;
+  background-color: $c-blue--dark;
+  position: relative;
+
+  @include mq($bp-tablet-vert) {
+    @include margin(x x 0 x);
+    @include padding(30px x 0 x);
+    font-size: $f-size-mini;
+  }
+}
+
+.footer__copyright {
+  margin: 0;
+  @include padding(21px 0 24px);
+  border-top: 1px solid $c-blue--desat;
+  @include haptik(regular);
+  font-size: $f-size-mini;
+  color: $c-white;
+
+  @include mq($bp-tablet-vert) {
+    padding: 0;
+    order: 1;
+    border-top: 0;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    border-top: 0;
+  }
+}
+
+.footer__content {
+  position: relative;
+
+  @include mq($bp-tablet-vert) {
+    display: flex;
+    padding: 30px 0 20px;
+    align-items: center;
+  }
+}
+
+.footer__social {
+  padding: 16px 0;
+
+  @include mq($bp-tablet-vert) {
+    padding: 0;
+    order: 2;
+    margin-left: auto;
+  }
+}
+
+
+/* Footer -> Prefooter
+   ========================================================================== */
+
+.prefooter {
+  @include padding(30px x);
+  border-bottom: 1px solid $c-blue--desat;
+
+  @include mq($bp-tablet-vert) {
+    @include margin(x x 0 x);
+    @include padding(x x 48px x);
+  }
+
+  @include mq($bp-tablet-horiz) {
+    padding-bottom: 80px;
+  }
+}
+
+.prefooter__content {
+  position: relative;
+  @include clearfix;
+}
+
+.prefooter__about {
+  @include margin(0 x 20px x);
+  font-family: 'Georgia';
+  font-size: $f-size-base;
+  line-height: $f-line-height-h6;
+  color: tint($c-blue--dark, 50%);
+
+  @include mq($bp-tablet-vert) {
+    width: 50%;
+    font-size: $f-size-h4;
+    line-height: $f-line-height-h4;
+    float: left;
+  }
+
+  @include mq($bp-desktop) {
+    width: 40%;
+  }
+}
+
+.prefooter__logo {
+  width: 150px;
+  @include margin(x x 20px x);
+
+  @include mq($bp-tablet-vert) {
+    width: 200px;
+    @include margin(x x 50px x);
+  }
+}
+
+.prefooter__contact {
+  line-height: 1.5;
+
+  address {
+    font-style: normal;
+  }
+
+  .addressee {
+    @include haptik(bold);
+  }
+
+  .addressee,
+  .suite-no,
+  .street-address,
+  .city,
+  .phone {
+    display: block;
+  }
+
+  .state {
+    text-decoration: none;
+  }
+
+  .email {
+    a {
+      @extend %f-a;
+      text-decoration: underline;
+    }
+  }
+
+  @include mq($bp-tablet-vert) {
+    float: right;
+    border-top: 0;
+  }
+}
+
+
+/* Footer -> Social Links
+   ========================================================================== */
+
+.footer__social-list {
+  @extend %f-list;
+}
+
+.footer__social-list-item {
+  display: inline-block;
+  @include margin(x 5px x x)
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.footer__social-link {
+  @extend %f-link;
+  @extend %f-link-reset;
+  @include size(35px);
+  display: block;
+  text-indent: -9999px;
+  transform: scale(1, 1);
+  transition: all 0.2s $easeOutQuad;
+
+  &--twitter {
+     @include svg(icon-twitter, 50% 50%, transparent, 55%);
+  }
+
+  &--facebook {
+     @include svg(icon-facebook, 50% 50%, transparent, 30%);
+  }
+
+  &--flickr {
+     @include svg(icon-flickr, 50% 50%, transparent, 65%);
+  }
+
+  &--instagram {
+     @include svg(icon-instagram, 50% 50%, transparent, 50%);
+  }
+
+  &--linkedin {
+     @include svg(icon-linkedin, 50% 50%, transparent, 55%);
+  }
+
+  &--youtube {
+     @include svg(icon-youtube, 50% 50%, transparent, 60%);
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale(1.15, 1.15);
+  }
+}

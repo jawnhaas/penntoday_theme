@@ -1,0 +1,79 @@
+/* ==========================================================================
+
+   Components -> Search Tease
+
+   ========================================================================== */
+
+.search-tease {
+  @include margin(x x 30px x);
+  @include padding(x x 30px x);
+  border-bottom: 1px solid $c-silver--light;
+  @include haptik(regular);
+  font-size: $f-size-base;
+  line-height: $f-line-height-base__sans;
+
+  &:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
+.search-tease__taxonomy {
+  @include margin(0 x 10px x);
+  @include haptik(bold);
+  @extend %f-smallcaps;
+  font-size: $f-size-nano;
+  color: $c-silver-blue;
+
+  @include mq($bp-tablet-horiz) {
+    font-size: $f-size-micro;
+  }
+}
+
+.search-tease__type {
+  color: $c-red--dark;
+}
+
+.search-tease__link {
+  @extend %f-a;
+}
+
+.search-tease__head {
+  @include margin(x x 10px x);
+  @include haptik(bold);
+  font-size: $f-size-base-plus;
+  line-height: $f-line-height-base-plus--sans;
+
+  @include mq($bp-tablet-horiz) {
+    font-size: $f-size-h4;
+    line-height: $f-line-height-h4--sans;
+  }
+}
+
+.search-tease__dek {
+  @include margin(0 x 10px x);
+  @include haptik(regular);
+  font-size: $f-size-base;
+  line-height: $f-line-height-base--sans;
+
+  @include mq($bp-tablet-horiz) {
+    font-size: $f-size-base-plus;
+    line-height: $f-line-height-base-plus--sans;
+  }
+}
+
+.search-tease__meta {
+  @include margin(0);
+  @include haptik(regular);
+  font-size: $f-size-base;
+  line-height: $f-line-height-base--sans;
+  color: $c-silver-blue;
+}
+
+.search-tease__date {
+  @include margin(0);
+}
+
+
+
+

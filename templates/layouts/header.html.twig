@@ -1,0 +1,156 @@
+<header class="header">
+  <div class="menu__wrapper">
+    <div class="menu__content">
+      <button class="search-bar__open js-search-bar-toggle" name="Searchbar Toggle" title="Search">
+        <span class="visually-hidden">Open Search Bar</span>
+        <svg class="search-bar__header-svg" xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33">
+          <path fill="#000127" fill-rule="evenodd" d="M1305.99318,316.019425 C1309.10677,316.019425 1312.01799,314.966024 1314.36394,313.226228 L1322.12809,321 L1325,318.124526 L1317.23585,310.391651 C1318.97511,308.042878 1320.02559,305.169186 1320.02559,302.010522 C1320.02559,294.276027 1313.75733,288 1306.03241,288 C1298.30911,288 1292,294.317328 1292,302.010522 C1292,309.703717 1298.30951,316.019425 1305.99318,316.019425 Z M1306,292 C1311.52882,292 1316,296.471181 1316,302 C1316,307.528819 1311.52882,312 1306,312 C1300.47118,312 1296,307.528819 1296,302 C1296,296.471181 1300.51264,292 1306,292 Z" transform="translate(-1292 -288)"/>
+        </svg>
+        <span class="visually-hidden">Close</span>
+        <svg class="search-bar__close-svg" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+        <polygon fill="#000127" fill-rule="evenodd" points="40.712 455.057 51.114 465.459 49.459 467.114 39.057 456.712 28.655 467.112 27 465.457 37.402 455.057 27.002 444.655 28.658 443 39.057 453.402 49.459 443 51.114 444.655" transform="translate(-27 -443)"/>
+        </svg>
+        <span class="menu__text js-search-text">Search</span>
+      </button>
+      {% include '@penntoday_theme/layouts/masthead.html.twig' %}
+        <button class="menu__open js-menu-toggle" name="Menu Toggle" title="Menu" tabindex="0">
+          <span class="visually-hidden">Open Navigation</span>
+          <svg class="menu__open-icon" width="28" height="11">
+            <path fill="none" stroke="#FFF" stroke-width="3" d="M1.5 1.5h24.515M1.5 9.5h24.515" stroke-linecap="square"/>
+          </svg>
+          <span class="menu__text">Menu</span>
+        </button>
+
+      </div>
+
+      <nav class="menu__topics-nav">
+        {{ taxonomy_menu_nav }}
+      </nav>
+    </div>
+    <div class="search-bar search-bar--main">
+    <form role="search" class="search-bar__header-form">
+      <fieldset class="search-bar__wrapper">
+        <input id="search-bar--main-input" type="search" placeholder="Search the site" class="js-search-bar-input search__header-input">
+        <label for="search-bar--main-input" class="visually-hidden">Search</label>
+        <button type="submit" class="js-search-bar-button search-bar__header-icon">
+          <p class="visually-hidden">Search Icon</p>
+          <svg class="search__header-svg" xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33">
+            <path fill="#000127" fill-rule="evenodd" d="M1305.99318,316.019425 C1309.10677,316.019425 1312.01799,314.966024 1314.36394,313.226228 L1322.12809,321 L1325,318.124526 L1317.23585,310.391651 C1318.97511,308.042878 1320.02559,305.169186 1320.02559,302.010522 C1320.02559,294.276027 1313.75733,288 1306.03241,288 C1298.30911,288 1292,294.317328 1292,302.010522 C1292,309.703717 1298.30951,316.019425 1305.99318,316.019425 Z M1306,292 C1311.52882,292 1316,296.471181 1316,302 C1316,307.528819 1311.52882,312 1306,312 C1300.47118,312 1296,307.528819 1296,302 C1296,296.471181 1300.51264,292 1306,292 Z" transform="translate(-1292 -288)"/>
+          </svg>
+        </button>
+      </fieldset>
+    </form>
+  </div>
+  </header>
+  <div class="search-bar__overlay"></div>
+
+  <div class="menu__overlay">
+    <div class="menu__close-bar">
+     <button class="js-menu-toggle menu__close">
+       <p class="visually-hidden">Close</p>
+       <svg class="menu__close-icon" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+         <polygon fill="#000127" fill-rule="evenodd" points="40.712 455.057 51.114 465.459 49.459 467.114 39.057 456.712 28.655 467.112 27 465.457 37.402 455.057 27.002 444.655 28.658 443 39.057 453.402 49.459 443 51.114 444.655" transform="translate(-27 -443)"/>
+       </svg>
+     </button>
+   </div>
+    <div class="menu__overlay-content">
+      <nav class="menu__main-nav">
+        <div class="menu__main-nav-wrapper">
+          <h6 class="menu__heading">Topics</h6>
+          {{ taxonomy_menu_menu }}
+          <div class="l-menu-subgroups">
+            <div class="menu-subgroup news-subgroup">
+              <h6 class="menu__heading">News</h6>
+              <ul class="menu__list">
+                <li class="menu__list-item">
+                  <a href="#" class="menu__inline-link" tabindex="0">News Archive</a>
+                </li>
+                <li class="menu__list-item">
+                  <a href="#" class="menu__inline-link" tabindex="0">Penn in the News</a>
+                </li>
+                <li class="menu__list-item">
+                  <a href="#" class="menu__inline-link" tabindex="0">More Penn News Sources</a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="menu-subgroup media-subgroup">
+              <h6 class="menu__heading">For the Media</h6>
+              <ul class="menu__list">
+                <li class="menu__list-item">
+                  <a href="#" class="menu__inline-link" tabindex="0">Find Experts</a>
+                </li>
+                <li class="menu__list-item">
+                  <a href="#" class="menu__inline-link" tabindex="0">Media Advisories</a>
+                </li>
+                <li class="menu__list-item">
+                  <a href="#" class="menu__inline-link" tabindex="0">Photo & Video Guidelines</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div class="comm-subgroup">
+            <h6 class="menu__heading">University Communications</h6>
+            <ul class="menu__list">
+              <li class="menu__list-item">
+                <a href="#" class="menu__inline-link" tabindex="0">Staff</a>
+              </li>
+              <li class="menu__list-item">
+                <a href="#" class="menu__inline-link" tabindex="0">Brand & Web Standards</a>
+              </li>
+              <li class="menu__list-item">
+                <a href="#" class="menu__inline-link" tabindex="0">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          <ul class="menu__penn-utilities-list">
+            <li class="menu__penn-utilities-item">
+              <a href="http://www.upenn.edu" class="menu__penn-utilities-link" tabindex="0">Penn Home</a>
+            </li>
+            <li class="menu__penn-utilities-item">
+              <a href="http://www.upenn.edu/penna-z" class="menu__penn-utilities-link" tabindex="0">A-Z</a>
+            </li>
+            <li class="menu__penn-utilities-item">
+              <a href="http://www.upenn.edu/directories" class="menu__penn-utilities-link" tabindex="0">Directory</a>
+            </li>
+            <li class="menu__penn-utilities-item">
+              <a href="http://www.upenn.edu/calendar/" class="menu__penn-utilities-link" tabindex="0">Calendar</a>
+            </li>
+            <li class="menu__penn-utilities-item">
+              <a href="http://www.facilities.upenn.edu/maps" class="menu__penn-utilities-link" tabindex="0">Maps</a>
+            </li>
+            <li class="menu__penn-utilities-item">
+              <a href="http://www.upenn.edu/services" class="menu__penn-utilities-link" tabindex="0">Offices and Services</a>
+            </li>
+            <li class="menu__penn-utilities-item">
+              <a href="http://www.upenn.edu/computing/webmail/" class="menu__penn-utilities-link" tabindex="0">Webmail</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="l-site-nav__events">
+      <h6 class="menu__heading menu-heading__events">
+        <a class="menu__heading__link" href="events">Events<span class="see-all__link">See all →</span></a>
+      </h6>
+      {{ menu_events }}
+    </div>
+  </div>
+  <div class="search-bar">
+  <form action="search" role="search" class="search-bar__header-form">
+    <fieldset class="search-bar__wrapper">
+      <input id="search-bar-input" name="terms" type="search" placeholder="Search the site" class="js-search-bar-input search__header-input">
+      <label for="search-bar-input" class="visually-hidden">Search</label>
+      <button type="submit" class="js-search-bar-button search-bar__header-icon">
+        <p class="visually-hidden">Search Icon</p>
+        <svg class="search__header-svg" xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33">
+          <path fill="#000127" fill-rule="evenodd" d="M1305.99318,316.019425 C1309.10677,316.019425 1312.01799,314.966024 1314.36394,313.226228 L1322.12809,321 L1325,318.124526 L1317.23585,310.391651 C1318.97511,308.042878 1320.02559,305.169186 1320.02559,302.010522 C1320.02559,294.276027 1313.75733,288 1306.03241,288 C1298.30911,288 1292,294.317328 1292,302.010522 C1292,309.703717 1298.30951,316.019425 1305.99318,316.019425 Z M1306,292 C1311.52882,292 1316,296.471181 1316,302 C1316,307.528819 1311.52882,312 1306,312 C1300.47118,312 1296,307.528819 1296,302 C1296,296.471181 1300.51264,292 1306,292 Z" transform="translate(-1292 -288)"/>
+        </svg>
+      </button>
+    </fieldset>
+  </form>
+</div>
+<div class="search-bar__overlay"></div>

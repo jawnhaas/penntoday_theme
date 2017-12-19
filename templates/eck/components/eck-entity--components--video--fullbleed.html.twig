@@ -1,0 +1,10 @@
+<div class="simple-embed-video simple-video">
+  <div class="simple-embed-video__container">
+    <div class="responsive-video">
+        <iframe src="{{ entity.field_url|render|trim }}" width="1280" height="720" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+    </div>
+      <figcaption class="simple-video__caption">
+        <p>{{ entity.field_caption }}</p>
+    </figcaption>
+  </div>

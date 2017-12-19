@@ -1,0 +1,119 @@
+/* ==========================================================================
+
+   Components -> Jumbo Tease
+
+   ========================================================================== */
+
+
+.jumbo-tease {
+  background-color: $c-blue--dark;
+  margin-bottom: -68px;
+
+  @include mq($bp-tablet-vert) {
+    margin-bottom: -78px;
+  }
+}
+
+.jumbo-tease__wrapper {
+  max-width: $l-tease-body;
+}
+
+.jumbo-tease__img {
+  z-index: 0;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+
+  img {
+    @extend %l-base__img;
+    transition: 0.6s $easeInOutQuad;
+    .no-touchevents .jumbo-tease__link:hover & {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.jumbo-tease__link {
+  @extend %f-link;
+  @extend %f-link-reset;
+
+  &:hover,
+  &:focus {
+    .jumbo-tease__head {
+      @extend %f-link__big-red;
+    }
+  }
+}
+
+.jumbo-tease__text {
+  text-align: center;
+  color: $c-white;
+  z-index: 1;
+  position: relative;
+  margin: 0 auto;
+  padding: 30px 18px;
+  border: 6px solid $c-white;
+  width: 93%;
+  transform: translateY(-68px);
+
+  @include mq($bp-tablet-vert) {
+    padding: 48px 30px;
+    border-width: 10px;
+    width: 80%;
+    transform: translateY(-78px);
+  }
+}
+
+.jumbo-tease__category {
+  display: inline-block;
+  @include haptik(bold);
+  @extend %f-micro__sans;
+  @extend %f-smallcaps;
+  color: $c-red--dark;
+  margin-bottom: 18px;
+  background-color: $c-white;
+  padding: 10px 12px;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-mini;
+    line-height: $f-line-height-mini__sans;
+    margin-bottom: 24px;
+  }
+}
+
+.jumbo-tease__head {
+  display: inline;
+  @include saolDisplay(bold);
+  @include fluid-font-size(24px, 64px, 320px, 1400px);
+  @include margin(x x 18px x);
+
+  @include mq($bp-tablet-vert) {
+    &:hover {
+      background-position: 0 44px;
+
+      .windowsfirefox & {
+        background-position: 0 55px;
+      }
+    }
+  }
+
+  @include mq($bp-desktop) {
+    &:hover {
+      background-position: 0 54px;
+
+      .windowsfirefox & {
+        background-position: 0 75px;
+      }
+    }
+  }
+}
+
+.jumbo-tease__dek {
+  @include haptik(regular);
+  @include fluid-font-size(16px, 24px, 320px, 1400px);
+  line-height: 1.5;
+
+  @include mq($bp-tablet-vert) {
+    @include margin(21px x x x);
+  }
+}

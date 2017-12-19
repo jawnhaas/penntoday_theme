@@ -1,0 +1,133 @@
+/* ==========================================================================
+
+   Components -> Toggle Dropdown
+
+   ========================================================================== */
+
+/* Filter List
+   ========================================================================== */
+
+.filter-list {
+  position: relative;
+}
+
+.filter-list__content {
+  display: none;
+}
+
+.filter-list__item {
+  @include margin(x x 20px x);
+  @include padding(x x 20px x);
+  border-bottom: 1px solid $c-silver--light;
+}
+
+.filter-list__h2 {
+  @include margin(x x 20px x);
+  @include haptik(bold);
+  font-size: $f-size-h5;
+  color: $c-blue--dark;
+
+  @include mq($bp-desktop) {
+    font-size: $f-size-h4;
+  }
+}
+
+/* Filter
+   ========================================================================== */
+
+.filters__header {
+  display: block;
+  position: relative;
+  @include margin(0);
+  @include haptik(bold);
+  font-size: $f-size-base;
+  cursor: pointer;
+
+  &::after {
+    @include pseudo;
+    display: block;
+    @include absolute(4px 0 x x);
+    @include size(16px);
+    @include svg(toggle-arrow, 50% 50%, transparent, 100%);
+    transition: transform 0.2s $easeInOutQuad;
+
+    .filter-list--in-view & {
+      transform: rotateZ(180deg);
+    }
+  }
+}
+
+.filters__options {
+  @extend %f-list;
+  @include padding(15px x x x);
+}
+
+.filters__option {
+  @include margin(x x 5px x);
+  @include haptik(regular);
+  font-size: $f-size-base;
+  line-height: $f-line-height-base--sans;
+  cursor: pointer;
+
+  a {
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 0 0 $c-blue--medium;
+    transition: all 0.2s $easeOutQuad;
+
+    &:hover,
+    &:focus {
+      box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 1px 0 $c-blue--medium;
+      color: $c-blue--dark;
+    }
+  }
+}
+
+.tease.js-filtered {
+  display: none;
+}
+
+.js-active-filter {
+  color: $c-blue--medium;
+}
+
+.filter-results {
+  @include absolute(-34px x x 0);
+
+  @include mq($bp-mobile-horiz) {
+    top: -42px;
+  }
+
+  @include mq($bp-tablet-vert) {
+    top: -57px;
+  }
+
+  @include mq($bp-desktop) {
+    top: -70px;
+  }
+}
+
+.filter-results__label {
+  @include margin(x 10px x x);
+  color: $c-blue--dark;
+}
+
+.filter-results__list {
+  @extend %f-list;
+}
+
+.filter-results__item {
+  position: relative;
+  display: inline-block;
+  @include margin(x x 30px x);
+  @include haptik(regular);
+  font-size: $f-size-base;
+  color: $c-blue--medium;
+  cursor: pointer;
+}
+
+.filter-results__clear {
+  display: inline-block;
+  @include haptik(bold);
+  font-size: $f-size-mini;
+  color: $c-blue--dark;
+  cursor: pointer;
+}

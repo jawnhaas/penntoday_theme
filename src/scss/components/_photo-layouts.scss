@@ -1,0 +1,168 @@
+/* ==========================================================================
+
+   Components -> Photo Layouts
+
+   ========================================================================== */
+
+
+.photo-layout--2x2,
+.photo-layout--2x1 {
+
+  .photo-layout__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .img-container {
+    position: relative;
+    float: left;
+    width: 50%;
+    @include padding(5px);
+
+    .caption {
+      display: none;
+    }
+  }
+
+  .caption {
+    @include padding(0 x x); //adjust the top padding because of the img-container padding
+    @include margin(x 5px);
+  }
+}
+
+/* Photo Layouts -> 4x1
+   ========================================================================== */
+.photo-layout--4x1 {
+
+  .photo-layout__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include mq($bp-tablet-horiz) {
+      flex-wrap: nowrap;
+    }
+  }
+
+  .img-container {
+    position: relative;
+    float: left;
+    width: 50%;
+    @include padding(5px);
+
+    .caption {
+      display: none;
+    }
+  }
+
+  .caption {
+    @include padding(0 x x); //adjust the top padding because of the img-container padding
+    @include margin(x 5px);
+  }
+}
+
+
+/* Photo Layouts -> 3x1
+   ========================================================================== */
+.photo-layout--3x1 {
+
+  .photo-layout__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include mq($bp-tablet-horiz) {
+      flex-wrap: nowrap;
+    }
+  }
+
+  .img-container {
+    position: relative;
+    float: left;
+    width: 50%;
+    @include padding(5px);
+
+    @include mq($bp-mobile-horiz) {
+      width: 33%;
+    }
+
+    .caption {
+      display: none;
+    }
+  }
+
+  .caption {
+    @include padding(0 x x); //adjust the top padding because of the img-container padding
+    @include margin(x 11px);
+  }
+}
+
+
+/* Photo Layouts -> Photo group
+   ========================================================================== */
+
+.photo-group {
+
+  @include mq($bp-tablet-vert) {
+    @include margin(60px x);
+  }
+
+  .img-container__asymmetrical {
+    display: flex;
+  }
+
+  .img-container {
+    width: 100%;
+    @include padding(5px);
+
+    .caption {
+      display: none;
+    }
+  }
+
+  .caption {
+    @include padding(0 x x); //adjust the top padding because of the img-container padding
+    @include margin(x 5px);
+  }
+}
+
+/* Photo Layouts -> Photo group Sidekick
+  (Creates the asymmetrical left/right layout when applied to a photo group)
+   ========================================================================== */
+
+.photo-group--sidekick {
+  .photo-layout__wrapper {
+    display: flex;
+  }
+
+  .img-container__asymmetrical {
+    width: 50%;
+    flex-wrap: wrap;
+  }
+
+  .caption {
+    @include padding(0 x x); //adjust the top padding because of the img-container padding
+    @include margin(x 5px);
+  }
+}
+
+/* Photo Layouts -> Fullbleed anything
+   ========================================================================== */
+
+.fullbleed {
+  @extend %l__img--fullbleed;
+  @include margin(30px -50vw);
+
+  @include mq($bp-tablet-vert) {
+    @include margin(60px x);
+  }
+
+  .caption {
+    @include margin(x 21px); //post content padding
+    @include padding(x x 0 x); //adjust the top padding because of the img-container padding
+    border: 0;
+
+    @include mq($bp-tablet-vert) {
+      @include margin(x 30px);
+    }
+  }
+}

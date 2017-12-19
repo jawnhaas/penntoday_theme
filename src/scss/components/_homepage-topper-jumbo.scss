@@ -1,0 +1,70 @@
+/* ==========================================================================
+
+   Components -> Jumbo Homepage Topper
+
+   ========================================================================== */
+
+.jumbo-topper__wrapper {
+  @extend %l-base__bottom-margin;
+  @include padding(60px x 20px x);
+
+  @include mq($bp-tablet-horiz) {
+    @include padding(100px x 30px x);
+  }
+}
+
+.jumbo-topper {
+  @include padding(x x 30px x);
+
+  @include mq($bp-mobile-horiz) {
+    border: 0;
+  }
+
+  @include mq($bp-tablet-vert) {
+    @include padding(x x 36px x);
+  }
+
+  @include mq($bp-tablet-horiz) {
+    display: flex;
+    align-items: center;
+    @include padding(x x 48px x);
+  }
+
+  @include mq($bp-desktop) {
+    @include padding(x x 64px x);
+    padding-bottom: 64px;
+  }
+}
+
+.jumbo-topper__img-wrapper {
+  @include mq($bp-tablet-horiz) {
+    width: 70%;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    @include margin(x x 0 x);
+  }
+
+  @include mq($bp-desktop) {
+    width: 50%;
+  }
+}
+
+.jumbo-topper__text {
+
+  @include mq($bp-tablet-horiz) {
+    width: 50%;
+    @include margin(x 0);
+    @include padding(x x x 36px);
+    text-align: left;
+  }
+
+  @include mq($bp-desktop) {
+    @include padding(x x x 48px);
+  }
+
+}
+
+.jumbo-topper__head {
+  @include fluid-font-size(30px, 64px, 320px, 1400px);
+}

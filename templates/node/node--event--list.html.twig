@@ -1,0 +1,19 @@
+<article class="tease tease--has-date">
+  <div class="tease__date-container">
+    <p class="tease__date"><?php print $event_startdate; ?></p>
+  </div>
+  <div class="tease__content">
+    <a class="tease__link" href="">
+      <h3 class="tease__head">{{ label }}</h3>
+      <div class="tease__img-round-container">
+        {{ content.field_image }}
+      </div>
+      <p class="tease__dek">{{ content.body }}</p>
+      <p class="tease__meta--sm"><?php print $event_time; ?></p>
+      <?php if($event_through) : ?>
+        <p class="tease__meta--sm"><?php print $event_through; ?></p>
+      <?php endif; ?>
+      <p class="tease__meta--sm"><?php print render($content['field_location']); ?></p>
+    </a>
+  </div>
+</article>

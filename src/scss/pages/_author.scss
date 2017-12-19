@@ -1,0 +1,207 @@
+/* ==========================================================================
+
+   Pages -> Author
+
+   ========================================================================== */
+
+.author-page {
+  @extend %l-base__bottom-margin;
+}
+
+.author__info-wrapper {
+  background-color: $c-blue--medium;
+}
+
+.author__info {
+  max-width: $l-post-body;
+  @extend %l-base__padding;
+  @extend %l-post__content;
+  @include margin(x auto 60px auto);
+  color: $c-white;
+
+  @include mq($bp-tablet-vert) {
+    display: flex;
+  }
+}
+
+.author__avatar {
+  float: right;
+  @include size(100%);
+  max-width: 125px;
+  @include margin(x x 15px x);
+  border-radius: 100%;
+  overflow: hidden;
+
+  @include mq($bp-mobile-horiz) {
+    max-width: 150px;
+  }
+
+  @include mq($bp-tablet-vert) {
+    float: none;
+    max-width: 100%;
+    width: 30%;
+    @include margin(0);
+  }
+}
+
+.author__img {
+  @extend %l-base__img;
+  filter: grayscale(100%);
+  transition: filter 0.4s $easeInOutQuad;
+
+  &:hover {
+    filter: grayscale(0%);
+  }
+}
+
+.author__text {
+  width: 100%;
+
+  @include mq($bp-tablet-vert) {
+    @include padding(x x x 36px);
+  }
+}
+
+/* Author -> Type
+   ========================================================================== */
+
+.author__name {
+  @include margin(0);
+  @include saolDisplay(bold);
+  font-size: $f-size-h3;
+  line-height: $f-line-height-h3;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h2;
+    line-height: $f-line-height-h2;
+  }
+
+  @include mq($bp-desktop) {
+    font-size: $f-size-h1;
+    line-height: $f-line-height-h1;
+  }
+}
+
+.author__title {
+  @include margin(x x 15px x);
+  @include saolDisplay(bold);
+  font-size: $f-size-h5;
+  line-height: $f-line-height-h5;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h4;
+    line-height: $f-line-height-h4;
+    @include margin(x x 30px x);
+  }
+
+  @include mq($bp-desktop) {
+    font-size: $f-size-h3;
+    line-height: $f-line-height-h3;
+  }
+}
+
+.author__bio {
+  @include margin(x x 15px x);
+  @include haptik(regular);
+  font-size: $f-size-mini;
+  line-height: $f-line-height-mini--sans;
+  color: $c-white;
+
+  @include mq($bp-tablet-vert) {
+    @include margin(x x 35px x);
+    font-size: $f-size-base;
+    line-height: $f-line-height-p--sans;
+  }
+
+  @include mq($bp-desktop) {
+    font-size: $f-size-p;
+  }
+}
+
+.author__contact {
+  @extend %f-list;
+  position: relative;
+  @include margin(0);
+  @include padding(0);
+}
+
+.author__contact-item {
+  position: relative;
+  @include margin(x 30px 15px x);
+  @include haptik(regular);
+  font-size: $f-size-mini;
+  line-height: $f-line-height-h5--sans;
+
+  &::before {
+    @include pseudo;
+    display: block;
+    @include absolute(x x x 0);
+  }
+
+  @include mq($bp-tablet-horiz) {
+    display: inline-block;
+    @include margin(x x 0 x);
+    font-size: $f-size-base;
+  }
+
+  &--email {
+    @include padding(x x x 30px);
+
+    &::before {
+      top: 6px;
+      @include size(21px, 14px);
+      @include svg(icon-email, 50% 50%, transparent, 100%);
+    }
+  }
+
+  &--phone {
+    @include padding(x x x 30px);
+
+    @include mq($bp-tablet-horiz) {
+      @include padding(x x x 24px);
+    }
+
+    &::before {
+      top: 2px;
+      left: 4px;
+      @include size(13px, 22px);
+      @include svg(icon-phone, 50% 50%, transparent, 100%);
+    }
+  }
+
+  &--twitter {
+    @include padding(x x x 30px);
+
+    @include mq($bp-tablet-horiz) {
+      @include padding(x x x 26px);
+    }
+
+    &::before {
+      top: 3px;
+      @include size(20px, 18px);
+      @include svg(icon-twitter, 50% 50%, transparent, 100%);
+    }
+  }
+
+  &:last-child {
+    @include margin(x 0 x x);
+  }
+}
+
+.author__contact-link {
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 0 0 $c-white;
+  transition: all 0.2s $easeOutQuad;
+
+  &:hover,
+  &:focus {
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 1px 0 $c-white;
+    color: $c-white;
+  }
+}
+
+/* Author -> Archive
+   ========================================================================== */
+
+.author__subhead {
+  @extend %f-page__subhead;
+}

@@ -1,0 +1,15 @@
+<div {{ attributes }}>
+<section class="featured-media-container">
+  <figure class="img-container featured-media">
+    <figcaption class="caption">
+      <span class="featured-media__category">Gallery</span>
+      <h2 class="featured-media__head">{{ content.field_name }}</h2>
+      <p class="featured-media__deck">{{content.field_description }} </p>
+      <a href="" class="featured-media__link">See More →</a>
+    </figcaption>
+    <div class="slider slider--image slider--image--featured media-container">
+          {{ entity }}
+    </div>
+  </figure>
+</section>
+</div>

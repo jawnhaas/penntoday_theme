@@ -1,0 +1,60 @@
+/* ==========================================================================
+
+   Components -> Small Featured Event
+
+   ========================================================================== */
+
+.event-feature--small {
+  width: 100%;
+  @include margin(x x 30px x);
+  @include padding(x x 30px x);
+  border-bottom: 1px solid $c-blue--desat;
+
+  &:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border: 0;
+  }
+
+  @include mq($bp-tablet-vert) {
+    flex-basis: 33.3%;
+    padding: 0 15px;
+    margin-bottom: 0;
+    border: 0;
+  }
+
+  .events-tease__date {
+    color: $c-neon-yellow;
+
+    @include mq($bp-tablet-vert) {
+      font-size: $f-size-h3;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+
+  .event__description {
+    @include mq($bp-tablet-vert) {
+      font-size: $f-size-mini;
+      line-height: $f-line-height-mini--sans;
+    }
+
+    @include mq($bp-desktop) {
+      font-size: $f-size-base;
+      line-height: $f-line-height-base--sans;
+    }
+  }
+}
+
+.event-feature--small__link {
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    .events-tease__img {
+      filter: grayscale(0%);
+    }
+  }
+}

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="hover-arrow" transform="translate(22.500000, 22.500000) scale(-1, 1) translate(-22.500000, -22.500000) " fill-rule="nonzero">
+            <circle id="Oval" fill="#DEFF00" cx="22.5" cy="22.5" r="22.5"></circle>
+            <polygon id="→" fill="#000127" points="23.582069 15 32 23 23.582069 31 21.377931 28.5876923 25.4813793 24.6492308 15 24.6492308 15 21.3507692 25.4813793 21.3507692 21.377931 17.3876923"></polygon>
+        </g>
+    </g>
+</svg>

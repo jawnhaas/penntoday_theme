@@ -1,0 +1,11 @@
+<a href="<?php print $node_url ?>" class="events-tease">
+  <p class="events-tease__date"><?php print $event_startdate; ?></p>
+  <p class="events-tease__text events-tease__title"><?php print $title ?></p>
+  <div class="events-tease__img-container">
+    <?php $content['field_image'][0]['#item']['attributes']['class'][] = 'events-tease__img'; ?>
+    <?php print render($content['field_image']); ?>
+  </div>
+  <p class="event__description"><?php print strip_tags(render($content['body'])); ?></p>
+  <p class="event__meta events-tease__time"><?php print $event_time ?></p>
+  <p class="event__meta events-tease__location"><?php print render($content['field_location']); ?></p>
+</a>

@@ -1,0 +1,27 @@
+<div class="event__featured">
+  <div class="event__wrapper container-width">
+    <header class="event-archive__header">
+      <h1 class="event-archive__header-h">Events</h1>
+    </header>
+    <div class="event__topper event-single__topper">
+      <div class="event__topper__img-wrapper">
+        <?php $content['field_image'][0]['#item']['attributes']['class'][] = 'event-feature--large__img'; ?>
+        <?php print render($content['field_image']); ?>
+      </div>
+      <div class="event__topper-content">
+        <p class="event__title">{{ label }}</p>
+        <p class="event__full-description">{{ content.body }}</p>
+        <?php if($content['field_url']) : ?>
+          <?php $content['field_url'][0]['#element']['attributes']['class'] = 'event__info-link'?>
+          <p class="event__info ">For more information, visit <?php print render($content['field_url']); ?></p>
+        <?php endif; ?>
+        <p class="event__meta event__date--full"><?php print $event_fulldate; ?></p>
+        <p class="event__meta event__time"><?php print $event_time; ?></p>
+        <?php if($event_through) : ?>
+        <p class="event__meta event__through"><?php print $event_through; ?></p>
+        <?php endif; ?>
+        <p class="event__meta event__location"><?php print render($content['field_location']); ?></p>
+      </div>
+    </div>
+  </div>
+</div>

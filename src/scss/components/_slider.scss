@@ -1,0 +1,293 @@
+/* ==========================================================================
+
+   Components -> Video
+
+   ========================================================================== */
+
+/* Default Variables
+   ========================================================================== */
+
+// "\2190" outputs ascii character "←"
+// "\2192" outputs ascii character "→"
+// "\2022" outputs ascii character "•"
+
+$slick-arrow-color: $c-blue--dark !default;
+$slick-dot-color: white !default;
+$slick-dot-color-active: $slick-dot-color !default;
+$slick-prev-character: "\2190" !default;
+$slick-next-character: "\2192" !default;
+$slick-dot-character: "\2022" !default;
+$slick-dot-size: 30px !default;
+$slick-opacity-default: 0.75 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: 0.45 !default;
+
+/* Slider
+   ========================================================================== */
+
+.slick-list {
+  .slick-loading & {
+    background: $c-white center center no-repeat;
+  }
+}
+
+/* Arrows
+   ========================================================================== */
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  display: block;
+  @include size(20px);
+  line-height: 0px;
+  font-size: 0px;
+  cursor: pointer;
+  background: transparent;
+  color: transparent;
+  @include padding(0);
+  border: none;
+  outline: none;
+  box-shadow: none;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    background: transparent;
+    color: transparent;
+    transform: none;
+
+    &:before {
+      opacity: $slick-opacity-on-hover;
+    }
+  }
+
+  &.slick-disabled:before {
+    opacity: $slick-opacity-not-active;
+  }
+
+  &::before {
+    font-size: 20px;
+    line-height: 1;
+    color: $slick-arrow-color;
+    opacity: $slick-opacity-default;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.slick-prev {
+  left: 0px;
+  [dir="rtl"] & {
+    left: auto;
+    right: 0px;
+  }
+  &:before {
+    content: $slick-prev-character;
+    [dir="rtl"] & {
+      content: $slick-next-character;
+    }
+  }
+}
+
+.slick-next {
+  right: 0px;
+  [dir="rtl"] & {
+    left: 0px;
+    right: auto;
+  }
+  &:before {
+    content: $slick-next-character;
+    [dir="rtl"] & {
+      content: $slick-prev-character;
+    }
+  }
+}
+
+/* Dots
+   ========================================================================== */
+
+.slick-dots {
+  @include absolute(x x 0 x);
+  display: block;
+  width: 100%;
+  @include margin(0);
+  @include padding(0);
+  list-style: none;
+  text-align: center;
+
+  li {
+    position: relative;
+    display: inline-block;
+    @include size(20px);
+    @include margin(0 5px);
+    @include padding(0);
+    cursor: pointer;
+
+    button {
+      display: block;
+      @include size(20px);
+      @include padding(5px);
+      border: 0;
+      font-size: 0px;
+      line-height: 0px;
+      color: transparent;
+      background: transparent;
+      outline: none;
+      cursor: pointer;
+      box-shadow: none;
+
+      &:hover,
+      &:focus {
+        outline: none;
+        transform: translate(0);
+
+        &::before {
+          opacity: $slick-opacity-on-hover;
+        }
+      }
+
+      &::before {
+        @include absolute(0 x x 0);
+        @include size(20px);
+        content: $slick-dot-character;
+        font-size: $slick-dot-size;
+        line-height: 20px;
+        text-align: center;
+        color: $slick-dot-color;
+        opacity: $slick-opacity-not-active;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    }
+
+    &.slick-active button::before {
+      color: $slick-dot-color-active;
+      opacity: $slick-opacity-default;
+    }
+  }
+}
+
+/* Custom Styles
+   ========================================================================== */
+
+.slider {
+  overflow: hidden;
+  position: relative;
+  clear: both;
+
+  .slick-slide {
+    display: inline-block;
+
+    .caption {
+      max-width: $l-article-header;
+      width: 100%;
+      @include margin(x auto);
+    }
+  }
+}
+
+/* News Slider
+   ========================================================================== */
+
+.slider--news {
+  .slick-slide {
+    @include margin(0 15px);
+    display: flex;
+    flex-direction: column;
+
+    &:focus {
+      border-color: $c-blue--medium;
+      box-shadow: 8px 8px 0px 0 $c-blue--medium;
+    }
+  }
+
+  @include mq($bp-mobile-horiz) {
+    .slick-next, .slick-prev {
+      height: 100%;
+      width: 60px;
+      z-index: 2;
+
+      @include mq($bp-tablet-vert) {
+        width: 80px;
+        top: 0;
+      }
+
+      @include mq($bp-desktop) {
+        width: 100px;
+      }
+
+      &::before {
+        display: none;
+      }
+    }
+
+    .slick-next {
+      right: 0;
+      cursor: url('/static/img/svg/hover-arrow-right.svg'), w-resize;
+    }
+
+    .slick-prev {
+      left: 0;
+      cursor: url('/static/img/svg/hover-arrow-left.svg'), w-resize;
+    }
+  }
+
+  .slick-dots {
+    visibility: hidden;
+  }
+}
+
+/* Image Slider
+   ========================================================================== */
+
+.slider--image .slick-slide {
+  text-align: center;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+/* Featured Image Slider
+   ========================================================================== */
+
+.slider--image--featured {
+  .slick-next::before, .slick-prev::before {
+    display: none;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    .slick-next, .slick-prev {
+      height: 100%;
+      width: 50%;
+      z-index: 2;
+      transform: none;
+      top: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    .slick-next {
+      right: 0;
+      cursor: url('/static/img/svg/hover-arrow-right.svg'), w-resize;
+    }
+
+    .slick-prev {
+      left: 0;
+      cursor: url('/static/img/svg/hover-arrow-left.svg'), w-resize;
+    }
+  }
+
+
+  .slick-dots {
+    @include margin(x auto);
+    @include padding(20px 0);
+    z-index: 2;
+    cursor: pointer;
+    width: inherit;
+    left: 0;
+    right: 0;
+  }
+}

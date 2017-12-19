@@ -1,0 +1,105 @@
+/* ==========================================================================
+
+   Components -> Featured Media
+
+   ========================================================================== */
+
+.featured-media {
+  position: relative;
+  border: 2px solid $c-blue--dark;
+  color: $c-blue--dark;
+  margin-bottom: 36px;
+  box-shadow: 6px 6px 0px 0 $c-blue--dark;
+
+  @include mq($bp-tablet-horiz) {
+    display: flex;
+    align-items: center;
+    margin-bottom: 48px;
+    border-width: 3px;
+    box-shadow: 8px 8px 0px 0 $c-blue--dark;
+  }
+
+  @include mq($bp-desktop) {
+    margin-bottom: 64px;
+  }
+
+  .caption {
+    border: none;
+    color: $c-blue--dark;
+    @include padding(50px 30px 20px 30px);
+
+    .featured-media__category {
+      @include absolute(0 x x 0);
+      @include padding(10px);
+      @extend %f-smallcaps;
+      @include haptik(bold);
+      @extend %f-micro__sans;
+      color: $c-white;
+      background-color: $c-blue--dark;
+
+      @include mq($bp-tablet-horiz) {
+        font-size: $f-size-mini;
+        @include padding(20px);
+      }
+    }
+
+    .featured-media__head {
+      @include haptik(bold);
+      font-size: $f-size-h4;
+      line-height: $f-line-height-h4--sans;
+
+      @include mq($bp-tablet-horiz) {
+        font-size: $f-size-h3;
+        line-height: $f-line-height-h3--sans;
+      }
+    }
+
+    .featured-media__deck {
+      @include haptik(regular);
+      font-size: $f-size-mini;
+      line-height: $f-line-height-mini--sans;
+
+      @include mq($bp-desktop) {
+        font-size: $f-size-h5;
+        line-height: $f-line-height-h5--sans;
+      }
+    }
+
+    .featured-media__link {
+      @extend %f-a;
+      @include haptik(bold);
+      color: $c-blue--dark;
+    }
+  }
+
+  @include mq($bp-tablet-horiz) {
+    .caption {
+      width: 30%;
+    }
+
+    .slider--image--featured {
+      width: 71%;
+
+    }
+
+    .media-container {
+      width: 70%;
+    }
+  }
+}
+
+/* Featured Media -> Reversed
+   ========================================================================== */
+
+.article--dark {
+
+  .featured-media {
+    border: 2px solid $c-blue--dark;
+    box-shadow: 6px 6px 0px 0 $c-blue--desat;
+
+    @include mq($bp-tablet-horiz) {
+      box-shadow: 8px 8px 0px 0 $c-blue--desat;
+    }
+  }
+}
+

@@ -1,0 +1,52 @@
+/* ==========================================================================
+
+   Layout -> Page
+
+   ========================================================================== */
+
+#content {
+  .js-search-open & {
+    filter: blur(3.5px);
+    @include mq($bp-mobile-horiz) {
+      filter: none;
+    }
+  }
+}
+
+.container-width,
+.section-wrapper {
+  max-width: $l-site-content;
+  @include padding(x 21px);
+  @include margin(x auto);
+
+  @include mq($bp-tablet-vert) {
+    @include padding(x 48px);
+  }
+
+  @include mq($bp-tablet-horiz) {
+    @include padding(x 60px);
+  }
+}
+
+.content-wrapper {
+  padding: 110px 0 0;
+  overflow: hidden;
+
+  @include mq($bp-tablet-vert) {
+    padding: 154px 0 0;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    padding: 174px 0 0;
+
+  }
+}
+
+.page {
+  position: relative;
+  padding-top: 56px;
+
+  @include mq($bp-tablet-vert) {
+    padding-top: 0;
+  }
+}

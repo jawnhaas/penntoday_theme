@@ -1,0 +1,351 @@
+/* ==========================================================================
+
+   Components -> Tease
+
+   ========================================================================== */
+
+.tease {
+  width: 100%;
+  @include clearfix;
+  @include margin(x x 20px x);
+  @include padding(x x 15px x);
+  border-bottom: 1px solid $c-silver--light;
+
+  @include mq($bp-desktop) {
+    @include margin(x x 30px x);
+    @include padding(x x 30px x);
+  }
+
+  &:last-child {
+    @include margin(x x 0 x);
+    @include padding(x x 0 x);
+    border: 0;
+  }
+}
+
+.tease__category {
+  @include margin(0 x 2px x);
+  @include haptik(bold);
+  @extend %f-smallcaps;
+  font-size: $f-size-nano;
+  line-height: $f-line-height-h6--sans;
+  color: $c-red--dark;
+
+  @include mq($bp-tablet-horiz) {
+    font-size: $f-size-micro;
+  }
+}
+
+.tease__date,
+.tease__time {
+  @extend %f-smallcaps--tiny;
+  font-size: $f-size-nano;
+  margin-top: 0;
+  margin-bottom: 8px;
+
+  @include mq($bp-tablet-horiz) {
+
+    font-size: $f-size-base;
+  }
+}
+
+.tease__date {
+  color: $c-blue;
+}
+
+.tease__time {
+  color: $c-silver-blue;
+}
+
+.tease__location {
+  @include haptik(normal);
+  margin-top: 0;
+}
+
+.tease__link {
+  @extend %f-link;
+  @extend %f-link-reset;
+  width: 50%;
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 0 0 $c-red;
+  transition: all 0.2s $easeOutQuad;
+
+  .no-touchevents &:hover,
+  &:focus {
+    color: $c-blue--dark;
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 2px 0 $c-red;
+  }
+}
+
+.tease__head {
+  display: inline;
+  @include margin(x x 8px x);
+  @include haptik(bold);
+  font-size: $f-size-base;
+  line-height: $f-line-height-base--sans;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h5;
+    line-height: $f-line-height-h5--sans;
+  }
+
+  @include mq($bp-desktop) {
+    font-size: $f-size-h4;
+    line-height: $f-line-height-h4--sans;
+  }
+}
+
+.tease__dek {
+  @include margin(5px 0 0);
+  @include haptik(regular);
+  @include fluid-font-size(16px, 21px, 320px, 1400px);
+  line-height: 1.4;
+}
+
+.tease__meta {
+  @include margin(5px x 0 x);
+  @include haptik(regular);
+  @include fluid-font-size(16px, 21px, 320px, 1400px);
+  color: $c-silver-blue;
+  line-height: $f-line-height-h3--sans;
+}
+
+.tease__meta--sm {
+  @include margin(5px x 0 x);
+  @include haptik(bold);
+  font-size: $f-size-mini;
+  line-height: $f-line-height-h5--sans;
+}
+
+.tease__img-wrapper {
+  float: left;
+  width: 100%;
+  overflow: hidden;
+  @include margin(x x 10px x);
+
+  @include mq($bp-tablet-vert) {
+    max-width: 150px;
+    @include margin(5px 15px 0 x);
+  }
+
+  @include mq($bp-desktop) {
+    max-width: 300px;
+    @include margin(x 0 x x);
+  }
+}
+
+.tease__img {
+  @extend %l-base__img;
+  @include margin(0);
+  transition: transform 0.4s $easeInOutQuad;
+
+  .no-touchevents .tease__img-wrapper:hover & {
+    transform: scale(1.05);
+  }
+}
+
+.tease__head {
+  @include mq($bp-desktop) {
+    font-size: 30px;
+  }
+}
+
+.tease__content {
+  @include margin(0);
+  width: 100%;
+}
+
+.tease__date-container {
+  z-index: $z-index--2;
+  flex-basis: 25%;
+  max-width: 200px;
+  @include padding(x 16px x x);
+
+  @include mq($bp-desktop) {
+    @include padding(0 20px 0 0);
+  }
+}
+
+.tease__date {
+  @include margin(0);
+  @include saolText(bold);
+  font-size: $f-size-h4;
+  color: $c-blue--medium;
+
+  @include mq($bp-desktop) {
+    font-size: $f-size-h3;
+  }
+}
+
+.tease--has-date {
+  display: flex;
+}
+
+.tease--horizontal .tease--has-image {
+  .tease__content {
+    @include mq($bp-desktop) {
+      float: left;
+      width: calc(100% - 300px);
+      @include padding(x x x 30px);
+    }
+  }
+}
+
+.tease__img-round-container {
+  position: relative;
+  float: right;
+  @include margin(x x x 24px);
+}
+
+.tease__img-round {
+  border-radius: 100%;
+  width: 60px;
+  filter: grayscale(100%);
+  transition: filter 0.4s $easeInOutQuad;
+
+  .no-touchevents .event-ease:hover & {
+    filter: grayscale(0%);
+  }
+
+  @include mq($bp-desktop) {
+    width: 80px;
+  }
+}
+
+/* Tease -> 4 Col
+   ========================================================================== */
+
+.tease--4-col {
+  position: relative;
+
+  .l-article-stream {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include mq($bp-desktop) {
+      @include margin(0 -30px);
+    }
+  }
+
+  .tease {
+    position: relative;
+
+    @include mq($bp-tablet-vert, "max") {
+      @include margin(x x 30px x);
+      @include padding(x x 30px x);
+      border-bottom: 1px solid $c-silver--light;
+    }
+
+    @include mq($bp-tablet-vert) {
+      width: 50%;
+    }
+
+    @include mq($bp-desktop) {
+      width: 25%;
+    }
+
+    &:nth-child(n+3) {
+      @include mq($bp-tablet-vert) {
+        @include padding(x x 0 x);
+        border-bottom: 0;
+      }
+    }
+
+    &:nth-child(-n+2) {
+      @include mq($bp-tablet-vert) {
+        @include margin(x x 30px x);
+        @include padding(x x 30px x);
+        border-bottom: 1px solid $c-silver--light;
+      }
+
+      @include mq($bp-desktop) {
+        @include margin(x x 0 x);
+        @include padding(x x 0 x);
+        border-bottom: 0;
+      }
+    }
+
+    .tease__inner-content {
+      height: 100%;
+    }
+
+    &:nth-child(odd) {
+      .tease__inner-content {
+        @include mq($bp-tablet-vert) {
+          @include padding(0 20px x x);
+          border-right: 1px solid $c-silver--light;
+        }
+
+        @include mq($bp-desktop) {
+          @include padding(x 30px);
+        }
+      }
+    }
+
+    &:nth-child(even) {
+      .tease__inner-content {
+        @include mq($bp-tablet-vert) {
+          @include padding(0 0 x 20px);
+
+        }
+
+        @include mq($bp-desktop) {
+          @include padding(x 30px);
+          border-right: 1px solid $c-silver--light;
+        }
+      }
+    }
+
+    &:last-child {
+      .tease__inner-content {
+        @include mq($bp-desktop) {
+          border-right: 0;
+        }
+      }
+    }
+  }
+
+  .tease__category {
+    @include margin(x x 8px x);
+    color: $c-red;
+  }
+
+  .tease__head {
+    font-size: $f-size-base;
+    line-height: $f-line-height-base--sans;
+
+    @include mq($bp-tablet-vert) {
+      font-size: $f-size-h5;
+      line-height: $f-line-height-h5--sans;
+    }
+
+    @include mq($bp-desktop) {
+      font-size: $f-size-h4;
+      line-height: $f-line-height-h5--sans;
+    }
+  }
+
+  .tease__dek {
+    font-size: $f-size-mini;
+    line-height: $f-line-height-mini--sans;
+
+    @include mq($bp-tablet-vert) {
+      font-size: $f-size-base;
+    }
+  }
+
+  .tease__meta {
+    @include margin(5px x 0 x);
+    @include haptik(regular);
+    font-size: $f-size-micro;
+    color: $c-silver-blue;
+
+    @include mq($bp-tablet-vert) {
+      font-size: $f-size-mini;
+    }
+  }
+
+  .tease__img-wrapper {
+    @include margin(0 x 15px x);
+    max-width: none;
+  }
+}

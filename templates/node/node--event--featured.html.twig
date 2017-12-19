@@ -1,0 +1,14 @@
+<div class="event-feature--large">
+  <div class="event-feature--large__img-wrapper">
+    <img src="{{ content.field_image }}" class="event-feature--large__img">
+  </div>
+  <div class="event-feature--large__content">
+    <a href="" class="event-feature--large__link events-tease">
+      <p class="event-feature--large__date">{{ content.event_startdate }}</p>
+      <p class="event-feature--large__title">{{ label|render|striptags }}</p>
+      <div class="event-feature--large__description">{{ content.body|render|striptags }}</div>
+      <p class="event__meta event__meta--time">{{ content.event_time }}</p>
+      <p class="event__meta event__meta--location">{{ content.event_url }}</p>
+    </a>
+  </div>
+</div>

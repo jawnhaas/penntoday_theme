@@ -1,0 +1,141 @@
+/* ==========================================================================
+
+   Components -> Experts
+
+   ========================================================================== */
+
+.l-experts {
+  @include padding(45px x x x);
+
+  @include mq($bp-mobile-horiz) {
+    width: 50%;
+    border-left: 1px solid $c-silver--light;
+    padding-left: 24px;
+    padding-top: 0;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    @include padding(x x x 0);
+    border: 0;
+  }
+
+  @include mq($bp-desktop) {
+    width: 30%;
+  }
+}
+
+.experts__head {
+  position: relative;
+  @include margin(0);
+
+  &::after {
+    @include pseudo;
+    @include absolute(8px x x 0);
+    @include size(100%, 10px);
+    z-index: -1;
+    background: linear-gradient(to right, $c-blue--medium, darken($c-blue--medium, 20%));
+  }
+}
+
+.experts__headline {
+  display: inline;
+  @include padding(x 10px x x);
+  @include haptik(bold);
+  font-size: $f-size-h4;
+  text-transform: uppercase;
+  color: $c-blue--medium;
+  background-color: $c-white;
+}
+
+.experts__list {
+  @extend %f-list;
+}
+
+.experts__item {
+  position: relative;
+  max-height: 270px;
+  overflow: hidden;
+  @include padding(21px x);
+
+  @include mq($bp-tablet-vert) {
+    @include padding(24px x);
+  }
+
+  @include mq($bp-desktop) {
+    @include padding(30px x);
+  }
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.experts__link {
+  @extend %f-link;
+  @extend %f-link-reset;
+
+  &:hover,
+  &:focus {
+    .experts__name {
+      text-decoration: underline;
+    }
+  }
+}
+
+.experts__text {
+  @include haptik;
+  font-size: $f-size-mini;
+  line-height: 1.4;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-base;
+  }
+}
+
+.experts__name {
+  display: block;
+  @include margin(0);
+  font-size: $f-size-base-plus;
+  font-weight: bold;
+  color: $c-blue--dark;
+}
+
+.experts__title {
+  display: block;
+  position: relative;
+  @include margin(x x 10px x);
+  font-size: $f-size-mini;
+  line-height: $f-line-height-mini--sans;
+  color: $c-silver-blue;
+}
+
+.experts__read-more {
+  display: block;
+  @include absolute(x x -5px 0);
+  width: 100%;
+  @include haptik(bold);
+  font-size: $f-size-mini;
+  color: $c-silver-blue;
+  background-color: $c-white;
+
+  &::before {
+    @include pseudo;
+    @include absolute(x 0 100% 0);
+    display: block;
+    background: linear-gradient(rgba(255,255,255,0), $c-white);
+    height: 2.5em;
+  }
+}
+
+.experts__see-all-link {
+  display: block;
+  @include margin(30px x x x);
+  @extend %f-a;
+  @extend %f-smallcaps;
+  @include haptik(bold);
+  font-size: $f-size-micro;
+  color: $c-blue--medium;
+}
+
+
+

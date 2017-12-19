@@ -1,0 +1,34 @@
+/* ==========================================================================
+
+   Components -> Popular Stories List
+
+   ========================================================================== */
+
+.article__body {
+  .popular-stories__item {
+    position: relative;
+    counter-increment: item;
+    @include margin(x x 15px 30px);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      @include absolute(0 x x -30px);
+      content: counter(item);
+      @include saolText(bold);
+      font-size: $f-size-h4;
+      color: $c-red--dark;
+    }
+
+    @include mq($bp-tablet-horiz) {
+      @include margin(x x 30px 40px);
+      top: 2px;
+
+      &::before {
+        font-size: $f-size-h3--serif;
+      }
+    }
+  }
+}

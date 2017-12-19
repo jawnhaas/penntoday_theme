@@ -1,0 +1,157 @@
+/* ==========================================================================
+
+   Components -> Simple Tease
+
+   ========================================================================== */
+
+.simple-tease {
+  @include margin(x x 20px x);
+  @include padding(x x 15px x);
+  border-bottom: 1px solid $c-blue--desat;
+
+  @include mq($bp-tablet-vert) {
+    @include margin(x x 30px x);
+    @include padding(x x 30px x);
+
+    &:last-child {
+      @include margin(x x 0 x);
+      @include padding(x x 0 x);
+    }
+  }
+}
+
+.simple-tease__wrapper {
+  display: block;
+}
+
+.simple-tease__link {
+  @extend %f-link;
+  @extend %f-link-reset;
+
+  &:hover .simple-tease__img,
+  &:focus .simple-tease__img {
+    transform: scale(1.05);
+  }
+}
+
+.simple-tease__img-wrapper {
+  order: 2;
+  overflow: hidden;
+  @include margin(x x 15px x);
+
+  @include mq($bp-tablet-horiz) {
+    max-width: 100%;
+    @include margin(x x x 0);
+  }
+}
+
+.simple-tease__img {
+  @extend %l-base__img;
+  transition: all 0.6s $easeOutQuad;
+}
+
+.simple-tease__text {
+  width: 100%;
+  order: 1;
+}
+
+.simple-tease__category {
+  display: inline-block;
+  @include margin(0 x 10px x);
+  @include haptik(bold);
+  @extend %f-smallcaps;
+  font-size: $f-size-micro;
+  line-height: 1;
+}
+
+.simple-tease__category__link {
+  @extend %f-link;
+  @extend %f-link-reset;
+  color: $c-red;
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 0 0 $c-red;
+  transition: all 0.2s $easeOutQuad;
+
+  .no-touchevents &:hover,
+  &:focus {
+    color: $c-red;
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 1px 0 $c-red;
+  }
+}
+
+.simple-tease__head {
+  display: block;
+  @include margin(0);
+  @include haptik(bold);
+  font-size: $f-size-base;
+  line-height: 1.2;
+  color: $c-white;
+  @include fluid-font-size(14px, 24px, 320px, 1400px);
+}
+
+.simple-tease__head__link {
+   @extend %f-link;
+   @extend %f-link-reset;
+   color: $c-white;
+   box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 0 0 $c-red;
+   transition: all 0.2s $easeOutQuad;
+
+  .no-touchevents &:hover,
+  &:focus {
+    color: $c-white;
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 2px 0 $c-red;
+  }
+}
+
+
+/* Homepage -> Jumbo Topper -> Simple Tease
+   ========================================================================== */
+
+
+.jumbo-topper__articles {
+
+  @include mq($bp-mobile-horiz) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .simple-tease {
+
+    @include mq($bp-mobile-horiz) {
+      @include margin(x 36px 0 x);
+      @include padding(x x 0 x);
+      border: 0;
+    }
+
+    @include mq($bp-tablet-horiz) {
+      width: 100%;
+      @include margin(x 48px 0 x);
+
+      @include mq($bp-desktop) {
+        @include margin(x 64px 0 x);
+      }
+    }
+
+    &:last-of-type {
+      @include margin(0);
+      @include padding(0);
+      border: 0;
+    }
+  }
+
+  .simple-tease__wrapper {
+    @include mq($bp-tablet-vert) {
+      display: block;
+    }
+  }
+
+  .simple-tease__text {
+
+    @include mq($bp-tablet-vert) {
+      text-align: center;
+    }
+  }
+
+}
+
+
+

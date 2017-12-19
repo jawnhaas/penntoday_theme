@@ -1,0 +1,74 @@
+/* ==========================================================================
+
+   Components -> Pagination
+
+   ========================================================================== */
+
+.item-list {
+  position: relative;
+  border-top: 1px solid $c-silver--light;
+  border-bottom: 1px solid $c-silver--light;
+  @include padding(16px x);
+  margin-top: 48px;
+
+
+  @include mq($bp-mobile) {
+    @include padding(24px x);
+  }
+}
+
+.pager {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  line-height: 2;
+
+  @include mq($bp-mobile) {
+    display: flex;
+    justify-content: center;
+    line-height: 1.1;
+  }
+
+  li {
+    display: inline-block;
+    @include haptik(bold);
+    color: $c-blue--dark;
+    padding: 0 12px;
+    text-transform: capitalize;
+    font-size: $f-size-micro;
+
+    @include mq($bp-tablet-vert) {
+      font-size: $f-size-mini;
+    }
+
+    a {
+      @extend %f-link;
+      @extend %f-link-reset;
+      color: $c-blue--dark;
+      text-decoration: none;
+      transition: color 0.3s $easeInOutQuad;
+
+      &:hover,
+      &:focus {
+        color: $c-blue--medium;
+      }
+
+      &:focus {
+        outline: 1px dotted $c-blue--medium;
+      }
+    }
+
+  }
+
+  .pager-current {
+    color: $c-blue--medium;
+  }
+
+  .next {
+    padding-right: 0;
+  }
+
+  .last {
+    padding-left: 0;
+  }
+}

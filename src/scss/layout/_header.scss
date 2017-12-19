@@ -1,0 +1,237 @@
+/* ==========================================================================
+
+   Layout -> Header
+
+   ========================================================================== */
+
+.header {
+  background-color: $c-blue--dark;
+  width: 100%;
+  z-index: $z-index--4;
+  transition: all 0.4s $easeInOutQuad;
+  @include fixed(0 0 x 0);
+  padding: 10px 10px 0;
+
+  @include mq($bp-tablet-vert) {
+    padding: 0 0 20px;
+    position: relative;
+    border-bottom: 1px solid $c-blue--desat;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    height: auto;
+  }
+}
+
+.header-condensed {
+  z-index: $z-index--6;
+  width: 100%;
+  @include fixed(0 0 x 0);
+  padding: 0 10px;
+  background-color: $c-blue--dark;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 0.2s $easeInOutQuad;
+
+  @include mq($bp-tablet-vert) {
+    padding: 0 15px;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    padding: 0 20px;
+  }
+
+  .masthead svg {
+    height: 35px;
+  }
+
+  .js-header-in-view & {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+
+  .menu__wrapper {
+    border-bottom: 1px solid $c-blue--desat;
+  }
+
+  .menu__content {
+    height: 60px;
+    justify-content: center;
+  }
+}
+
+.menu__wrapper {
+  position: relative;
+  border-bottom: 1px solid $c-blue--desat;
+  padding-bottom: 10px;
+
+  @include mq($bp-tablet-vert) {
+    border: 0;
+    padding-bottom: 0;
+  }
+}
+
+.menu__text {
+  display: none;
+  @include haptik(bold);
+  font-size: $f-size-base;
+  text-transform: none;
+  letter-spacing: 0;
+  color: $c-white;
+
+  @include mq($bp-tablet-vert) {
+    display: inline-block;
+    @include padding(x x x 5px);
+  }
+}
+
+.masthead {
+  align-self: center;
+
+  .header-condensed--article & {
+    @include mq($bp-tablet-vert) {
+      display: none;
+    }
+  }
+
+  svg {
+    display: block;
+    height: 35px;
+
+    @include mq($bp-tablet-vert) {
+      height: 45px;
+    }
+
+    @include mq($bp-tablet-horiz) {
+      height: 55px;
+    }
+  }
+}
+
+.menu__content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* IE11 Fixes
+   ========================================================================== */
+
+.ie11 {
+  .menu__content {
+    display: block;
+    text-align: center;
+
+    .search-bar__open {
+      float: left;
+      margin-top: 10px;
+    }
+
+    .masthead {
+      display: inline-block;
+    }
+
+    .menu__open {
+      float: right;
+      margin-top: 10px;
+    }
+  }
+
+  .header-condensed--article {
+    @include mq($bp-tablet-vert) {
+      .masthead {
+        display: none;
+      }
+
+      .article-nav {
+        display: inline-block;
+
+        .article-nav__logo, .article-nav__h-group {
+          display: inline-block;
+          vertical-align: top;
+        }
+      }
+    }
+  }
+}
+
+
+
+/* "Skip to Content" link
+   ========================================================================== */
+
+.skip-to-content {
+  background-color: $c-white;
+  color: $c-blue--dark;
+  display: block;
+  font-family: $f-family-sans;
+  font-weight: $f-sans-semi-bold;
+  font-size: 16px;
+  padding: 2px 4px;
+  position: absolute;
+  left: 20px;
+  top: 5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: scale(0);
+  z-index: 0;
+
+  &:focus {
+    transform: scale(1);
+    z-index: $z-index--6  ;
+  }
+}
+
+// Topic list
+// ------------------------------------------
+
+.menu__topics-nav {
+  display: none;
+
+  @include mq($bp-desktop) {
+    display: block;
+  }
+}
+
+.topics-nav-list {
+  margin: 0;
+  @extend %f-list;
+  @include haptik(bold);
+  color: $c-white;
+  text-align: center;
+  padding-top: 18px;
+  margin-top: 20px;
+  border-top: 1px solid $c-blue--desat;
+  line-height: 0.9
+}
+
+.topics-nav-item {
+  position: relative;
+  display: inline-block;
+  @include margin(x 25px x x);
+  @extend %f-smallcaps;
+  font-size: 1vw;
+  line-height: 1.15;
+
+  @include mq($bp-desktop-xl) {
+    font-size: $f-size-micro;
+  }
+
+  &:last-child {
+    @include margin(x 0 x x);
+  }
+}
+
+.topics-nav-link {
+  @extend %f-link;
+  @extend %f-link-reset;
+  transition: all 0.2s $easeOutQuad;
+  border-bottom: 1px solid $c-blue--dark;
+
+  &:hover,
+  &:focus {
+    border-color: $c-neon-yellow;
+  }
+}

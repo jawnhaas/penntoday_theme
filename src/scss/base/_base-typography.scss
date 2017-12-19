@@ -1,0 +1,166 @@
+/* ==========================================================================
+
+   Base -> Base Typography
+
+   ========================================================================== */
+
+h1,h2,h3,h4,h5,h6 {
+  @include margin(0 x x);
+}
+
+p {
+  @include margin(0 x x);
+  @extend %f-p__serif;
+  color: $c-blue--dark;
+
+  a {
+    @extend %f-post__a;
+  }
+}
+
+.page-title__h {
+  @include margin(0 x 24px x);
+  @extend %f-h1__display;
+  @include fluid-font-size(30px, 84px, 320px, 1400px);
+  text-align: center;
+
+  @include mq($bp-tablet-vert) {
+    @include margin(x x 36px x);
+  }
+}
+
+h1 {
+  @extend %f-post__h1;
+}
+
+h2 {
+  @extend %f-post__h2;
+}
+
+h3 {
+  @extend %f-post__h3;
+}
+
+h4 {
+  @extend %f-post__h4;
+}
+
+h5 {
+  @extend %f-post__h5;
+}
+
+h6 {
+  @extend %f-post__h6;
+}
+
+b,
+strong {
+  font-weight: 600;
+}
+
+i,
+em {
+  font-style: italic;
+}
+
+ul,
+ol {
+  @extend %f-p__serif;
+  @include padding(x x x 20px);
+
+  a {
+    @extend %f-post__a;
+  }
+}
+
+blockquote {
+  @include margin(0);
+
+  p {
+    position: relative;
+    @include padding(x x x 30px);
+    color: $c-silver-blue;
+
+    &::before {
+      @include pseudo;
+      @include size(1px, 100%);
+      @include absolute(0 x x 0);
+      background-color: $c-silver-blue;
+      margin-right: 10px;
+    }
+  }
+}
+
+hr {
+  @include margin(30px 0);
+  border-color: $c-silver--light;
+}
+
+
+/* Base Typography -> Pullquote
+   ========================================================================== */
+
+.pullquote {
+  width: 100%;
+  @include margin(x 0 x 0);
+  text-align: center;
+  position: relative;
+
+  @include mq($bp-tablet-vert) {
+    @include margin(90px auto 50px auto);
+  }
+
+  > p {
+      @include margin(30px auto);
+      @include padding(30px x x x);
+      max-width: 100%;
+      @include saolDisplay(bold);
+      @include fluid-font-size(24px, 48px, 320px, 1400px);
+      line-height: $f-line-height-h3;
+      color: $c-blue--dark;
+
+      @include mq($bp-tablet-vert) {
+        line-height: $f-line-height-h3;
+      }
+    }
+
+  &::before {
+    content: '“';
+    display: block;
+    width: 100%;
+    @include absolute(-15px x x x);
+    @include saolDisplay(bold);
+    font-size: 70px;
+    color: $c-red;
+
+    @include mq($bp-tablet-vert) {
+      font-size: 90px;
+      top: -30px;
+    }
+
+    @include mq($bp-desktop) {
+      font-size: $f-size-jumbo;
+      top: -55px;
+    }
+  }
+
+  span {
+    display: block;
+    @include margin(15px x x x);
+    @include haptik(regular);
+    font-size: $f-size-mini;
+    color: $c-silver-blue;
+
+    @include mq($bp-tablet-vert) {
+      font-size: $f-size-base;
+    }
+
+    @include mq($bp-laptop) {
+      font-size: $f-size-base-plus;
+    }
+  }
+}
+
+.quote-author-title {
+  color: $c-silver-blue;
+}

@@ -1,0 +1,312 @@
+/* ==========================================================================
+
+   Pages -> Inside Penn
+
+   ========================================================================== */
+
+.inside-penn {
+  position: relative;
+  background-color: $c-blue--medium;
+}
+
+.inside-penn-page__header-content {
+  @extend %l-base__wrapper;
+  @extend %l-base__padding;
+  @include haptik(regular);
+  color: $c-white;
+  transition-property: height, bottom, top, padding;
+  transition-duration: 0.2s;
+  transition-timing-function: $easeOutQuad;
+  top: 0;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  @include mq($bp-tablet-vert) {
+    height: 100vh;
+    width: 40%;
+    @include fixed(x x inherit 10px);
+    @include padding(150px 30px 0);
+
+    &.js-stick {
+      width: calc(40% + 15px);
+      top: auto;
+      bottom: 0;
+      position: absolute;
+      left: -10px;
+    }
+  }
+
+  @include mq($bp-tablet-horiz) {
+    @include padding(250px 60px x);
+
+    .js-header-in-view & {
+      @include padding(150px x);
+    }
+  }
+
+  @include mq($bp-desktop-xxl) {
+    @include padding(x 90px);
+  }
+}
+
+.inside-penn-page__title-wrapper {
+  transition: all 0.2s $easeInOutQuad;
+
+  @include margin(x x 45px x);
+
+  @include mq($bp-tablet-horiz) {
+    @include margin(x x 90px x);
+  }
+}
+
+.inside-penn-page__title {
+  @include margin(x x 10px x);
+  @include saolDisplay(bold);
+  font-size: $f-size-h3;
+  line-height: 0.8;
+
+  @include mq($bp-mobile-horiz) {
+    font-size: $f-size-h2;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    font-size: $f-size-menu-topics;
+  }
+
+  @include mq($bp-desktop-xxl) {
+    font-size: $f-size-lead;
+  }
+}
+
+.inside-penn-page__description {
+  @include margin(0 x);
+  @include haptik(regular);
+  font-size: $f-size-p;
+  line-height: $f-line-height-base--sans;
+  color: $c-white;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-base;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    font-size: $f-size-h4;
+    line-height: $f-line-height-h4--sans;
+  }
+}
+
+.inside-penn-page__filters {
+
+  .js-filter-option {
+    color: $c-white;
+    border: 0;
+    &:hover {
+      border-color: $c-blue--light;
+    }
+  }
+
+  .filter-list__h2 {
+    color: $c-white;
+  }
+
+  .filters__header {
+    @include mq($bp-tablet-vert) {
+      font-size: $f-size-p;
+    }
+
+    &:after {
+      background-image: url("../../static/img/svg/toggle-arrow--white.svg"), none;
+    }
+  }
+
+  .filter-list__item:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.inside-penn__filter-heading {
+  @include margin(x x 20px x);
+  @include haptik(bold);
+  font-size: $f-size-h5;
+  color: $c-neon-yellow;
+
+  @include mq($bp-desktop) {
+    font-size: $f-size-h4;
+  }
+}
+
+.inside-penn__articles {
+  @extend %l-base__wrapper;
+  @extend %l-base__padding;
+  position: relative;
+  background-color: $c-white;
+
+  @include mq($bp-tablet-vert) {
+    width: 60%;
+    @include margin(x x x 40%);
+  }
+}
+
+.inside-penn-article__list {
+  @extend %f-list;
+  max-width: 968px;
+  @include margin(x auto);
+}
+
+.inside-penn-article__item {
+  border-bottom: 1px solid $c-silver--light;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+
+  @include mq($bp-tablet-vert) {
+    padding-bottom: 36px;
+    margin-bottom: 36px;
+  }
+
+  @include mq($bp-desktop) {
+    padding-bottom: 48px;
+    margin-bottom: 48px;
+  }
+
+  &:last-child {
+    border: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+}
+
+.inside-penn-article__summary {
+  @include margin(0 x 15px x);
+  @include haptik(regular);
+  font-size: $f-size-mini;
+  line-height: 1.4;
+
+  @include mq($bp-desktop) {
+    font-size: $f-size-p;
+    line-height: 1.4;
+  }
+}
+
+.inside-penn-article__content {
+  @extend %f-p__sans;
+}
+
+.inside-penn-article__date {
+  @include margin(0 x 10px x);
+  margin-top: 0;
+  font-size: $f-size-base;
+  line-height: $f-line-height-mini--sans;
+  @include haptik(bold);
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h6;
+  }
+
+  @include mq($bp-desktop) {
+    font-size: $f-size-h5;
+  }
+}
+
+.inside-penn-article__source {
+  margin: 0;
+  color: $c-silver-blue;
+  @include haptik(bold);
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h6;
+  }
+
+  @include mq($bp-desktop) {
+    font-size: $f-size-h5;
+  }
+}
+
+.inside-penn-article__source-link {
+  @extend %f-link;
+  @extend %f-link-reset;
+  color: $c-blue--medium;
+  transition: all 0.2s $easeOutQuad;
+
+  &:hover,
+  &:focus {
+    color: $c-blue--dark;
+  }
+}
+
+.inside-penn-article__head {
+  @include margin(0 x 10px x);
+  @extend %f-p__sans;
+  @include haptik(bold);
+  font-size: $f-size-h5;
+  line-height: $f-line-height-h5;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h4;
+    line-height: $f-line-height-h4;
+  }
+
+  @include mq($bp-desktop) {
+    font-size: $f-size-h3;
+    line-height: $f-line-height-h3;
+  }
+}
+
+.inside-penn-article__link {
+  @extend %f-a;
+  color: $c-blue--dark;
+  transition: all 0.2s $easeOutQuad;
+
+  &:hover,
+  &:focus {
+    color: $c-red--dark;
+  }
+}
+
+.inside-penn-article__image {
+  @include margin(x x 30px x);
+
+  img {
+    @extend %l-base__img;
+  }
+}
+
+.inside-penn__month-header {
+  position: relative;
+  @include margin(30px x);
+
+  @include mq($bp-tablet-vert) {
+    @include margin(45px x);
+  }
+
+  @include mq($bp-desktop) {
+    @include margin(60px x);
+  }
+
+  &::after {
+    @include pseudo;
+    @include absolute(8px x x 0);
+    @include size(100%, 10px);
+    z-index: 1;
+    background: linear-gradient(to right, $c-blue--medium, darken($c-blue--medium, 20%));
+
+    @include mq($bp-tablet-horiz) {
+      @include absolute(17px x x 0);
+    }
+  }
+}
+
+.inside-penn__month-header__text {
+  display: inline;
+  position: relative;
+  @include padding(x 10px x x);
+  @include haptik(bold);
+  font-size: $f-size-h4;
+  color: $c-blue--medium;
+  background-color: $c-white;
+  z-index: 2;
+
+  @include mq($bp-tablet-horiz) {
+    font-size: $f-size-h3;
+  }
+}
+

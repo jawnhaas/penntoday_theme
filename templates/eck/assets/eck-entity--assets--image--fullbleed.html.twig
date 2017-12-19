@@ -1,0 +1,14 @@
+<figure class="img-container img-container--fullbleed">
+  <img src="{{ entity.field_image}}" />
+  {% if entity.field_caption|render is not empty or entity.field_credit|render is not empty %}
+  <figcaption class="caption">
+    {% if entity.field_caption is not empty %}
+      {{ entity.field_caption|render|striptags }}
+    {% endif %}
+    {% if entity.field_credit is not empty %}
+      <span class="img-credit">{{ entity.field_credit|render|striptags }}</span>
+    {% endif %}
+  </figcaption>
+  {% endif %}
+
+</figure>

@@ -1,0 +1,146 @@
+/* ==========================================================================
+
+   Util -> Mixins
+
+   ========================================================================== */
+
+/* Mixins -> Layout
+   ========================================================================== */
+@mixin vertHorizCenter() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Mixins -> Type
+   ========================================================================== */
+
+@mixin dropShadowBox($color: $c-blue--dark) {
+  @include haptik(bold);
+  display: inline-block;
+  @include padding(5px 7px);
+  border: 2px solid $color;
+  color: $color;
+  box-shadow: -3px 3px 0px 0 $color;
+}
+
+/* Mixins -> Fluid Fonts
+   ========================================================================== */
+
+@mixin fluid-font-size($min-size: 16px, $max-size: 38px, $min-width: 400px, $max-width: 1400px) {
+  font-size: $min-size;
+  @include mq($min-width, $max-width) {
+    font-size: calc(#{$min-size} + (#{strip-units($max-size)} - #{strip-units($min-size)}) * (100vw - #{$min-width}) / (#{strip-units($max-width)} - #{strip-units($min-width)}))
+  }
+  @include mq($max-width) {
+    font-size: $max-size;
+  }
+}
+
+/* Mixins -> Fonts
+   ========================================================================== */
+
+@mixin saolDisplay(
+  $weight: normal,
+  $style: normal
+) {
+  @if $weight == normal or $weight == regular {
+    font-family: "Saol Display";
+    font-weight: normal;
+  } @else if $weight == medium {
+    font-family: "Saol Display";
+    font-weight: 500;
+  } @else if $weight == semi-bold {
+    font-family: "Saol Display";
+    font-weight: 600;
+  } @else if $weight == bold {
+    font-family: "Saol Display";
+    font-weight: bold;
+  }
+  @if $style == normal {
+    font-style: $style;
+  } @else {
+    font-style: $style;
+  }
+}
+
+@mixin saolText(
+  $weight: normal,
+  $style: normal
+) {
+  @if $weight == normal or $weight == regular {
+    font-family: "Saol Text";
+    font-weight: normal;
+  } @else if $weight == book {
+    font-family: "Saol Text Book";
+    font-weight: normal;
+  } @else if $weight == semi-bold {
+    font-family: "Saol Text";
+    font-weight: 600;
+  } @else if $weight == bold {
+    font-family: "Saol Text";
+    font-weight: bold;
+  }
+  @if $style == normal {
+    font-style: $style;
+  } @else {
+    font-style: $style;
+  }
+}
+
+@mixin haptik(
+  $weight: normal,
+  $style: normal
+) {
+  @if $weight == normal or $weight == regular {
+    font-family: "Haptik";
+    font-weight: normal;
+  } @else if $weight == bold {
+    font-family: "Haptik";
+    font-weight: 600;
+  }
+  @if $style == normal {
+    font-style: $style;
+  } @else {
+    font-style: $style;
+  }
+}
+
+// CSS Gradient Text
+// https://codepen.io/giana/pen/RPdLaQ
+
+@mixin gradient-text($gradient, $bg : 'light') {
+  @supports(mix-blend-mode: lighten) {
+    display: inline-block;
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+
+      background: unquote($gradient);
+      pointer-events: none;
+    }
+
+    @if ($bg == 'light') {
+      color: #000;
+      background: #fff;
+      mix-blend-mode: multiply;
+
+      &::before {
+        mix-blend-mode: screen;
+      }
+    } @else {
+      color: #fff;
+      background: #000;
+      mix-blend-mode: lighten;
+
+      &::before {
+        mix-blend-mode: multiply;
+      }
+    }
+  }
+}

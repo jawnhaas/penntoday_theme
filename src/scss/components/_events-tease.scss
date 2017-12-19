@@ -1,0 +1,159 @@
+/* ==========================================================================
+
+   Components -> Events Tease
+
+   ========================================================================== */
+
+.events-teases {
+
+  &--home {
+    background-color: $c-blue--dark;
+  }
+
+  &--single {
+    background-color: $c-blue--dark;
+  }
+}
+
+.l-events-teases {
+  @include padding(30px x);
+
+  @include mq($bp-tablet-vert) {
+    @include padding(60px x);
+  }
+
+  @include mq($bp-tablet-horiz) {
+    @include padding(80px x);
+  }
+}
+
+.l-events-tease__wrapper {
+  @include mq($bp-tablet-vert) {
+    display: flex;
+    justify-content: space-between;
+    @include margin(0 -50px);
+  }
+}
+
+.events-tease {
+  @extend %f-a;
+  display: block;
+}
+
+.events-teases .events-tease {
+
+  @include mq($bp-tablet-vert) {
+    width: 50%;
+    @include padding(50px);
+  }
+
+  &:first-child {
+    @include margin(x x 30px x);
+    @include padding(x x 30px x);
+    border-bottom: 1px solid $c-white;
+
+    @include mq($bp-tablet-vert) {
+      border-bottom: 0;
+      border-right: 1px solid $c-white;
+    }
+  }
+}
+
+.events-tease__date {
+  @include margin(0 x);
+  @include saolDisplay(bold);
+  font-size: $f-size-subhead;
+  color: $c-white;
+
+  @include mq($bp-tablet-vert) {
+    font-size:$f-size-h2;
+
+    &::after {
+      @include pseudo;
+      display: block;
+      width: 100%;
+      height: 10px;
+      @include margin(20px x 30px x);
+      background-color: $c-neon-yellow;
+    }
+  }
+
+  @include mq($bp-desktop) {
+    font-size: $f-size-h1;
+  }
+}
+
+.event__description {
+  @include margin(0 x 15px x);
+  @include haptik(regular);
+  font-size: $f-size-mini;
+  line-height: $f-line-height-mini--sans;
+  color: $c-white;
+
+  @include mq($bp-tablet-vert) {
+    @include margin(0 x 30px x);
+    font-size: $f-size-base;
+    line-height: $f-line-height-base--sans;
+  }
+}
+
+.events-tease__title {
+  @include margin(0 x 10px x);
+  @include haptik(bold);
+  font-size: $f-size-h5;
+  line-height: $f-line-height-h5--sans;
+  color: $c-white;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h4;
+    line-height: $f-line-height-h4--sans;
+  }
+}
+
+.event__meta {
+  position: relative;
+  @include margin(0);
+  @include padding(x x x 30px);
+  @include haptik(bold);
+  font-size: $f-size-mini;
+  line-height: $f-line-height-mini--sans;
+  color: $c-white;
+
+  &::before {
+    content: "—";
+    display: block;
+    color: $c-neon-yellow;
+    @include absolute(0 x x 0);
+  }
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-base;
+    line-height: $f-line-height-base--sans;
+  }
+}
+
+.events-tease__img-container {
+  float: right;
+  overflow: hidden;
+  @include size(100px);
+  @include margin(x x 5px 5px);
+  border-radius: 100%;
+  transform: translateZ(0px);
+
+  @include mq($bp-desktop) {
+    @include margin(x x 10px 10px);
+  }
+}
+
+.events-tease__img {
+  width: 100%;
+  filter: grayscale(100%);
+  transition: filter 0.4s $easeInOutQuad;
+
+  .no-touchevents .events-tease__img-container:hover & {
+    filter: grayscale(0%);
+  }
+}
+
+
+

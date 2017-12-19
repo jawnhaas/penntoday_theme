@@ -1,0 +1,201 @@
+/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  font-size: 16px;
+}
+
+body {
+  -moz-font-feature-settings: "liga" on;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+  font-size: 16px;
+  color: $c-blue--dark;
+
+  .touchevents & {
+    @include mq($bp-tablet-vert) {
+      border: 15px solid $c-blue--dark;
+    }
+
+    @include mq($bp-tablet-horiz) {
+      border: 15px solid $c-blue--dark;
+    }
+  }
+
+  .no-touchevents & {
+
+    @include mq($bp-tablet-vert) {
+      border: 20px solid $c-blue--dark;
+      border-color: transparent;
+      transform: none;
+    }
+
+    &:before,
+    &:after {
+      z-index: $z-index--5;
+      content: "";
+      user-select: none;
+      pointer-events: none;
+      @include fixed(0 0 0 0);
+      border: inherit;
+      border-color: $c-blue--dark;
+      transition: border-image 0.2s $easeInOutQuad;
+      display: none;
+
+      @include mq($bp-tablet-vert) {
+        display: block;
+      }
+    }
+
+    &:before {
+      border-bottom-width: 0px;
+
+      @include mq($bp-tablet-vert) {
+        border-bottom-width: 20px;
+      }
+    }
+
+    &:after {
+      display: none;
+
+      @include mq($bp-tablet-vert) {
+        border-bottom-width: 20px;
+        display: block;
+      }
+    }
+
+    &.border--blue {
+      &:before,
+      &:after {
+          border-image: linear-gradient(to bottom, $c-blue--dark, $c-blue);
+          border-image-slice: 1;
+      }
+    }
+  }
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+a:link {
+  -webkit-tap-highlight-color: #b3d4fc;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/*
+ * Prevent js responsive images from showing up if no-js https://www.npmjs.com/package/lazysizes
+ */
+
+.no-js img.lazyload {
+  display: none;
+}
+
+.blur-up {
+  filter: blur(2px);
+  transition: filter 400ms;
+}
+
+.blur-up.lazyloaded {
+  filter: blur(0);
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   http://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+.visually-hidden {
+  @include hide;
+}

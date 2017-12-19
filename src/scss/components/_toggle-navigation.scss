@@ -1,0 +1,53 @@
+/* ==========================================================================
+
+   Components -> Toggle Navigation
+
+   ========================================================================== */
+
+.search__toggle-navigation {
+  @include padding(x x 60px x);
+
+  .toggle-navigation__list-item {
+    @include padding(0);
+  }
+}
+
+.toggle-navigation__list {
+  @extend %f-list;
+}
+
+.toggle-navigation__list-item {
+  display: inline-block;
+}
+
+.toggle-navigation__button {
+  @include reset-input;
+  cursor: pointer;
+  @include padding(10px);
+  border: 2px solid transparent;
+  @include haptik(regular);
+  font-size: $f-size-base;
+  line-height: $f-line-height-base--sans;
+
+  &:hover {
+    transform: none;
+  }
+
+  &--active {
+    @include dropShadowBox($c-blue--medium);
+    transform: translate(3px, -3px);
+  }
+}
+
+.toggle-navigation__item {
+  display: none;
+}
+
+.toggle-navigation__item--active {
+  display: block;
+}
+
+.toggle-item-fade--active {
+  opacity: 0.2;
+  pointer-events: none;
+}

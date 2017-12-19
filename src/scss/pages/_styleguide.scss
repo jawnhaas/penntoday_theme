@@ -1,0 +1,278 @@
+/* ==========================================================================
+
+   Pages -> Styleguide
+
+   ========================================================================== */
+
+.styleguide {
+  padding-top: 110px;
+
+  @include mq($bp-tablet-vert) {
+    padding-top: 80px;
+  }
+
+  @include mq($bp-desktop) {
+    padding-top: 100px;
+  }
+}
+
+.styleguide-section {
+  @extend %l-base__padding;
+}
+
+.styleguide-header {
+  position: relative;
+  @include margin(x x 30px);
+
+  &::after {
+    @include pseudo;
+    @include size(100%, 1px);
+    @include absolute(8px x x 0);
+    background-color: $c-silver-blue;
+    z-index: -1;
+  }
+}
+
+.styleguide-header__text {
+  display: inline;
+  @include padding(x 10px x x);
+  @extend %f-smallcaps--sans-bold;
+  font-size: $f-size-mini;
+  color: $c-silver-blue;
+  background-color: $c-white;
+}
+
+.styleguide-header--secondary {
+  @include margin(45px x x x);
+  font-size: $f-size-mini;
+  color: $c-silver-blue;
+}
+
+.styleguide__group {
+  margin-bottom: 36px;
+}
+
+
+/* Styleguide -> Table of Contents
+   ========================================================================== */
+.styleguide-contents {
+  text-align: center;
+
+  .styleguide-header__text {
+    display: block;
+    @include margin(x x 15px x);
+    @include padding(0);
+    color: $c-red--dark;
+  }
+}
+
+.styleguide-contents__list {
+  @extend %f-list;
+  @include haptik(regular);
+}
+
+.styleguide-contents__item {
+  a {
+    box-shadow: none;
+  }
+}
+
+/* Styleguide -> Fonts
+   ========================================================================== */
+.font-specimen {
+  @include margin(x x 30px x);
+  @include padding(x x 30px x);
+  border-bottom: 1px solid $c-silver--light;
+
+  &:last-child {
+    @include margin(x x 0 x);
+    @include padding(x x 0 x);
+    border-bottom: none;
+  }
+}
+
+.font-specimen__head {
+  @include margin(0);
+}
+
+.font-specimen__description {
+  @include margin(0);
+  @include haptik(regular);
+  font-size: $f-size-mini;
+  color: $c-silver-blue;
+}
+
+.font-specimen--saol-display {
+  @include saolDisplay(bold);
+  font-size: $f-size-h3;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h2;
+  }
+}
+
+.font-specimen--saol-text {
+  @include saolText(bold);
+  font-size: $f-size-h3;
+}
+
+.font-specimen--haptik-bold {
+  @include haptik(bold);
+}
+
+.font-specimen--haptik-regular {
+  @include haptik(regular);
+}
+
+.font-specimen--georgia {
+  font-family: $f-family-text;
+  font-weight: normal;
+  font-size: $f-size-p;
+}
+
+
+/* Styleguide -> Article
+   ========================================================================== */
+.styleguide-article__body {
+  > p {
+    &:first-of-type:first-letter {
+      float: none;
+      display: inline;
+      @include margin(0);
+      @include padding(0);
+      border: 0;
+      box-shadow: none;
+      font-family: inherit;
+      font-weight: inherit;
+      font-size: inherit;
+      font-style: inherit;
+      color: inherit;
+    }
+  }
+}
+
+/* Styleguide -> Color Palette
+   ========================================================================== */
+.styleguide-colors {
+  @include mq($bp-tablet-vert) {
+    display: flex;
+  }
+}
+
+.styleguide-color {
+  display: flex;
+  align-items: center;
+  @include margin(30px 0 0);
+}
+
+.styleguide-colors--main,
+.styleguide-colors--secondary {
+  width: 100%;
+}
+
+.styleguide-color__block {
+  display: block;
+  @include size(100px);
+
+  &--sm {
+    @include size(70px);
+  }
+}
+
+.styleguide-colorblock-info {
+  @include margin(0 x 0 10px);
+  @include haptik(regular);
+  font-size: $f-size-mini;
+}
+
+.colorblock--dark-blue {
+  background-color: $c-blue--dark;
+}
+
+.colorblock--medium-blue {
+  background-color: $c-blue--medium;
+}
+
+.colorblock--silver-blue {
+  background-color: $c-silver-blue;
+}
+
+.colorblock--blue-desat {
+  background-color: $c-blue--desat;
+}
+
+.colorblock--red {
+  background-color: $c-red;
+}
+
+.colorblock--dark-red {
+  background-color: $c-red--dark;
+}
+
+.colorblock--neon-yellow {
+  background-color: $c-neon-yellow;
+}
+
+.colorblock--light-silver {
+  background-color: $c-silver--light;
+}
+
+/* Styleguide -> Teases
+   ========================================================================== */
+
+.styleguide__tease {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.styleguide__tease--sm {
+  max-width: $l-tease-column;
+}
+
+.styleguide__simple-tease__wrapper {
+  @include padding(30px);
+  background-color: $c-blue--dark;
+
+  @include mq($bp-tablet-vert) {
+    width: 50%;
+  }
+
+  @include mq($bp-laptop) {
+    width: 30%;
+  }
+
+  .homepage-topper-stream {
+    @include margin(0 auto);
+    @include padding(0);
+    border-left: 0;
+  }
+}
+
+/* Styleguide -> Grid System
+   ========================================================================== */
+
+.styleguide__grid-row {
+
+  .grid-item {
+
+  }
+}
+.styleguide__grid-fill {
+  background-color: $c-silver-blue;
+}
+
+.styleguide__grid-text {
+  @extend %f-p__sans;
+  margin: 0;
+  padding: 16px 0;
+  text-align: center;
+  color: $c-white;
+}
+
+/* Styleguide -> Forms
+   ========================================================================== */
+
+.styleguide-form {
+  max-width: 480px;
+  width: 100%;
+}

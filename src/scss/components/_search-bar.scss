@@ -1,0 +1,237 @@
+/* ==========================================================================
+
+   Components -> Searchbar
+
+   ========================================================================== */
+
+body {
+  transition: all 0.4s $easeInOutExpo;
+
+  .search-bar--condensed {
+    height: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.mobilesafari {
+
+  .header {
+    padding: 0;
+
+    .menu__wrapper {
+      padding: 10px;
+      @include mq($bp-tablet-vert) {
+        padding: 0 10px 10px;
+      }
+    }
+
+    .header-condensed {
+      .menu__wrapper {
+        padding: 10px;
+      }
+    }
+  }
+
+
+  .js-header-in-view.js-search-open {
+
+    .search-bar--main {
+      height: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .search-bar--condensed {
+      margin-top: 0;
+      transform: none;
+      height: 80px;
+      visibility: visible;
+      pointer-events: all;
+      width: 100%;
+      margin: 0;
+
+      @include mq($bp-tablet-vert) {
+
+      }
+
+      @include mq($bp-desktop) {
+        height: 140px;
+      }
+    }
+  }
+}
+
+.search-bar {
+  @include fixed(0 0 x x);
+  display: flex;
+  @include size(100%, 80px);
+  @include padding(x 20px);
+  align-items: center;
+  background-color: $c-neon-yellow;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: opacity 0.4s $easeInOutExpo;
+  z-index: $z-index--5;
+
+  .mobilesafari & {
+    position: relative;
+    transform: none;
+    pointer-events: none;
+    height: 0;
+    z-index: 0;
+  }
+
+  @include mq($bp-tablet-vert) {
+    height: 100px;
+    @include padding(x 48px);
+    margin: 0 15px;
+    width: calc(100% - 30px);
+  }
+
+  @include mq($bp-desktop) {
+    height: 140px;
+    padding-top: 0;
+    border-width: 20px;
+  }
+
+  .js-search-open & {
+    opacity: 1;
+    transform: translateY(56px);
+
+    .mobilesafari & {
+      transform: none;
+      height: 80px;
+      pointer-events: all;
+    }
+
+    @include mq($bp-tablet-vert) {
+      transform: translateY(86px);
+
+      .mobilesafari & {
+        transform: none;
+        height: 100px;
+      }
+    }
+
+    @include mq($bp-tablet-horiz) {
+      transform: translateY(96px);
+    }
+
+    @include mq($bp-desktop) {
+      transform: translateY(155px);
+
+      .mobilesafari & {
+        transform: none;
+        height: 140px;
+      }
+    }
+  }
+
+  .js-header-in-view.js-search-open & {
+    transform: translateY(60px);
+  }
+
+  .search-bar__header-form {
+    position: relative;
+    width: 100%;
+    max-width: $l-post-body;
+    @include margin(x auto);
+  }
+
+  .search__header-input {
+    border-color: $c-blue--dark;
+    font-size: $f-size-h5;
+    color: $c-blue--dark;
+
+    @include mq($bp-desktop) {
+      font-size: $f-size-h3;
+    }
+  }
+
+  .search-bar__header-icon {
+    @include absolute(10px 0 x x);
+    transform: scale(1, 1);
+    transition: all 0.2s $easeOutQuad;
+    padding: 0;
+
+    path {
+      fill: $c-blue--dark;
+    }
+
+    &:hover,
+    &:focus {
+      transform: scale(1.15, 1.15);
+    }
+
+    @include mq($bp-tablet-vert){
+      @include absolute(4px 0 x x);
+    }
+
+    @include mq($bp-desktop){
+      @include absolute(24px 0 x x);
+    }
+  }
+
+  .search__header-svg {
+    @include size(20px);
+
+    @include mq($bp-tablet-vert) {
+      @include size(25px);
+    }
+  }
+}
+
+.search-bar__overlay {
+  @include fixed(0 0 0 0);
+  z-index: $z-index--2;
+  background-color: rgba($c-blue--dark, 0.8);
+  visibility: hidden;
+  opacity: 0;
+  display: block;
+  transition: all 0.3s $easeInOutQuad;
+
+  .js-search-open & {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @include mq($bp-mobile-horiz) {
+    display: none;
+  }
+}
+
+.search-bar__wrapper {
+  input[type="search"]::-webkit-input-placeholder {
+    color: shade($c-neon-yellow, 25%) !important;
+
+    &:focus {
+      color: $c-white !important;
+    }
+  }
+
+  input[type="search"]:-moz-placeholder { /* Firefox 18- */
+    color: shade($c-neon-yellow, 25%) !important;
+
+    &:focus {
+      color: $c-white !important;
+    }
+  }
+
+  input[type="search"]::-moz-placeholder {  /* Firefox 19+ */
+    color: shade($c-neon-yellow, 25%) !important;
+
+    &:focus {
+      color: $c-white !important;
+    }
+  }
+
+  input[type="search"]:-ms-input-placeholder {
+    color: shade($c-neon-yellow, 25%) !important;
+
+    &:focus {
+      color: $c-white !important;
+    }
+  }
+}
+

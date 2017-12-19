@@ -1,0 +1,86 @@
+/* ==========================================================================
+
+   Components -> Wide Tease
+
+   ========================================================================== */
+
+.tease-wide {
+  position: relative;
+  border-bottom: 1px solid $c-silver--light;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  @include clearfix;
+
+  &:last-child {
+    border: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .tease__date,
+  .tease__time {
+    font-size: $f-size-mini;
+  }
+}
+
+.tease-wide__category {
+  margin-bottom: 16px;
+  width: 100%;
+  float: left;
+
+  @include mq($bp-tablet-vert) {
+    width: 22%;
+    padding-right: 60px;
+    margin-bottom: 0;
+  }
+}
+
+.tease-wide__info {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+
+  @include mq($bp-mobile-horiz) {
+    float: left;
+    flex-wrap: nowrap;
+  }
+
+  @include mq($bp-tablet-vert) {
+    float: left;
+    width: 77%;
+  }
+}
+
+.tease-wide__img-container {
+  width: 100%;
+  margin-bottom: 30px;
+
+  @include mq($bp-mobile-horiz) {
+    width: 40%;
+    margin-bottom: 0;
+    padding-right: 30px;
+  }
+
+  @include mq($bp-desktop) {
+    padding-right: 60px;
+  }
+}
+
+.tease-wide__img {
+  @extend %l-base__img;
+}
+
+.tease-wide__meta {
+  @include mq($bp-tablet-vert) {
+    flex-wrap: nowrap;
+  }
+}
+
+.tease-wide__content {
+  width: 100%;
+
+  @include mq($bp-mobile-horiz) {
+    width: 60%;
+  }
+}
+

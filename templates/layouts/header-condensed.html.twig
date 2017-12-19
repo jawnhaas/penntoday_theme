@@ -1,0 +1,56 @@
+<header class="header-condensed{% if node.type.entity.label is defined and node.type.entity.label == 'News' %} header-condensed--article{% endif %}">
+  <div class="menu__wrapper">
+    <div class="menu__content">
+      <button class="search-bar__open js-search-bar-toggle" name="Searchbar Toggle" title="Search">
+        <span class="visually-hidden">Open Search Bar</span>
+        <svg class="search-bar__header-svg" xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33">
+          <path fill="#000127" fill-rule="evenodd" d="M1305.99318,316.019425 C1309.10677,316.019425 1312.01799,314.966024 1314.36394,313.226228 L1322.12809,321 L1325,318.124526 L1317.23585,310.391651 C1318.97511,308.042878 1320.02559,305.169186 1320.02559,302.010522 C1320.02559,294.276027 1313.75733,288 1306.03241,288 C1298.30911,288 1292,294.317328 1292,302.010522 C1292,309.703717 1298.30951,316.019425 1305.99318,316.019425 Z M1306,292 C1311.52882,292 1316,296.471181 1316,302 C1316,307.528819 1311.52882,312 1306,312 C1300.47118,312 1296,307.528819 1296,302 C1296,296.471181 1300.51264,292 1306,292 Z" transform="translate(-1292 -288)"/>
+        </svg>
+        <span class="visually-hidden">Close</span>
+        <svg class="search-bar__close-svg" xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+        <polygon fill="#000127" fill-rule="evenodd" points="40.712 455.057 51.114 465.459 49.459 467.114 39.057 456.712 28.655 467.112 27 465.457 37.402 455.057 27.002 444.655 28.658 443 39.057 453.402 49.459 443 51.114 444.655" transform="translate(-27 -443)"/>
+        </svg>
+        <span class="menu__text js-search-text">Search</span>
+      </button>
+      {% if node.type.entity.label is defined and node.type.entity.label == 'News' %}
+        <div class="article-nav">
+          <a href="" class="article-nav__logo"><span class="visually-hidden">Penn Today Logo</span></a>
+          <div class="article-nav__h-group">
+            <span class="article-nav__h"><?php print $title ?></span>
+          </div>
+        </div>
+        {% endif %}
+        {% include '@penntoday_theme/layouts/masthead.html.twig' %}
+      <button class="menu__open js-menu-toggle" name="Menu Toggle" title="Menu" tabindex="0">
+        <span class="visually-hidden">Open Navigation</span>
+        <svg class="menu__open-icon" width="28" height="11">
+          <path fill="none" stroke="#FFF" stroke-width="3" d="M1.5 1.5h24.515M1.5 9.5h24.515" stroke-linecap="square"/>
+        </svg>
+        <span class="menu__text">Menu</span>
+      </button>
+
+    </div>
+  </div>
+  <div class="search-bar search-bar--condensed">
+  <form role="search" class="search-bar__header-form">
+    <fieldset class="search-bar__wrapper">
+      <input id="search-bar--condensed-input" type="search" placeholder="Search the site" class="js-search-bar-input search__header-input">
+      <label for="search-bar--condensed-input" class="visually-hidden">Search</label>
+      <button type="submit" class="js-search-bar-button search-bar__header-icon">
+        <p class="visually-hidden">Search Icon</p>
+        <svg class="search__header-svg" xmlns="http://www.w3.org/2000/svg" width="33" height="33" viewBox="0 0 33 33">
+          <path fill="#000127" fill-rule="evenodd" d="M1305.99318,316.019425 C1309.10677,316.019425 1312.01799,314.966024 1314.36394,313.226228 L1322.12809,321 L1325,318.124526 L1317.23585,310.391651 C1318.97511,308.042878 1320.02559,305.169186 1320.02559,302.010522 C1320.02559,294.276027 1313.75733,288 1306.03241,288 C1298.30911,288 1292,294.317328 1292,302.010522 C1292,309.703717 1298.30951,316.019425 1305.99318,316.019425 Z M1306,292 C1311.52882,292 1316,296.471181 1316,302 C1316,307.528819 1311.52882,312 1306,312 C1300.47118,312 1296,307.528819 1296,302 C1296,296.471181 1300.51264,292 1306,292 Z" transform="translate(-1292 -288)"/>
+        </svg>
+      </button>
+    </fieldset>
+  </form>
+</div>
+{% if node.type.entity.label is defined and node.type.entity.label == 'News' %}
+    <div class="article-nav__progress">
+        <div class="article-nav__progress-bar js--progress-bar">
+          <span class="visually-hidden" aria-label="Article Reading Progress"></span>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</header>

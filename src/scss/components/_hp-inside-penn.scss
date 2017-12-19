@@ -1,0 +1,141 @@
+/* ==========================================================================
+
+   Components -> Homepage Inside Penn
+
+   ========================================================================== */
+.l-hp-inside-penn {
+  @include padding(45px x x x);
+
+  @include mq($bp-mobile-horiz) {
+    width: 50%;
+    border-left: 1px solid $c-silver--light;
+    padding-left: 24px;
+    padding-top: 0;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    width: 40%;
+    @include padding(x x x 0);
+    border: 0;
+  }
+
+  @include mq($bp-desktop) {
+    width: 30%;
+  }
+}
+
+.hp-inside-penn__header {
+  position: relative;
+  @include margin(0);
+
+  &::after {
+    @include pseudo;
+    @include absolute(8px x x 0);
+    @include size(100%, 10px);
+    z-index: -1;
+    background: linear-gradient(to right, $c-blue--medium, darken($c-blue--medium, 20%));
+  }
+}
+
+.hp-inside-penn__text {
+  display: inline;
+  @include padding(x 10px x x);
+  @include haptik(bold);
+  font-size: $f-size-h4;
+  text-transform: uppercase;
+  color: $c-blue--medium;
+  background-color: $c-white;
+}
+
+.inside-penn__list {
+  @extend %f-list;
+}
+
+.inside-penn__item {
+  @include padding(21px x);
+  border-bottom: 1px solid $c-silver--light;
+
+  @include mq($bp-tablet-vert) {
+    @include padding(24px x);
+  }
+
+  @include mq($bp-desktop) {
+    @include padding(30px x);
+  }
+
+  &:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  p {
+    @include margin(0);
+    @include haptik(regular);
+    @include fluid-font-size(14px, 18px, 320px, 1400px);
+    line-height: $f-line-height-base--sans;
+  }
+}
+
+.inside-penn__link {
+  @extend %f-link;
+  @extend %f-link-reset;
+  transition: all 0.2s $easeOutQuad;
+
+  &:hover,
+  &:focus {
+    color: $c-blue--medium;
+
+    .inside-penn__highlight {
+      color: $c-blue--medium !important;
+    }
+  }
+}
+
+.inside-penn__source {
+  display: block;
+  @include margin(15px x x x);
+  @include haptik(regular);
+  @include fluid-font-size(14px, 18px, 320px, 1400px);
+  color: $c-silver-blue;
+}
+
+.inside-penn__source-link {
+  @extend %f-link;
+  @extend %f-link-reset;
+  transition: all 0.2s $easeOutQuad;
+
+  &:hover,
+  &:focus {
+    color: $c-blue--dark;
+  }
+}
+
+.inside-penn__highlight {
+  color: $c-blue--medium;
+
+  .no-touchevents .inside-penn__link:hover &,
+  .no-touchevents .inside-penn__link:focus & {
+    color: $c-blue;
+  }
+}
+
+.inside-penn__highlight {
+  color: $c-blue--medium;
+
+  .no-touchevents .inside-penn__link:hover &,
+  .no-touchevents .inside-penn__link:focus & {
+    color: $c-blue;
+  }
+}
+
+.inside-penn__see-all-link {
+  display: block;
+  @extend %f-a;
+  @extend %f-smallcaps;
+  @include haptik(bold);
+  font-size: $f-size-micro;
+  color: $c-blue--medium;
+  margin-top: 36px;
+}
+
+

@@ -1,0 +1,29 @@
+{% set contentBody %}
+     {{ content.body }}
+{% endset %}
+<article class="event-feature--small">
+  <a href="<?php print $node_url ?>" class="event-feature--small__link">
+    <p class="events-tease__date">
+    </p>
+    <p class="events-tease__title">
+    {{ label }}
+    </p>
+    <div class="events-tease__img-container">
+      <img src="{{ content.field_image }}" class="events-tease__img">
+    </div>
+    <p class="event__description">
+      {{ contentBody | striptags }}
+    </p>
+    <p class="event__meta events-tease__time">
+      <?php print $event_time; ?>
+    </p>
+    <p class="event__meta events-tease__location">
+      <?php print render($content['field_location']); ?>
+    </p>
+    <?php if($event_through) : ?>
+      <p class="event__meta events-tease__end">
+        <?php print $event_through; ?>
+      </p>
+    <?php endif; ?>
+  </a>
+</article>

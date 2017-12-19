@@ -1,0 +1,166 @@
+/* ==========================================================================
+
+   Components -> Article Nav
+
+   ========================================================================== */
+
+.article-nav {
+  justify-content: center;
+  align-items: center;
+  display: none;
+
+  @include mq($bp-tablet-vert) {
+    display: flex;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    max-width: 100%;
+  }
+}
+
+/* Article Nav -> Header
+   ========================================================================== */
+
+.article-nav__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  @include margin(0 10px 5px);
+  overflow: hidden;
+
+  @include mq($bp-tablet-vert) {
+    @include margin(x 20px x);
+  }
+}
+
+.article-nav__h-group {
+  overflow: hidden;
+  @include padding(x x x 10px);
+  text-overflow: ellipsis;
+  color: $c-white;
+
+  @include mq($bp-mobile-horiz) {
+    @include padding(x x x 12px);
+  }
+}
+
+.article-nav__logo {
+  @include svg(PennToday-logo, 50% 50%, transparent, 100%);
+  display: block;
+  min-width: 20px;
+  min-height: 25px;
+  @include margin(x x 2px x);
+
+  @include mq($bp-mobile-horiz) {
+    @include size(140px, 20px);
+    @include margin(2px 0 0 0);
+    background-image: url(../../static/img/svg/PennToday-logo.svg), none;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    @include size(129px, 28px);
+  }
+}
+
+.article-nav__h {
+  position: relative;
+  @include padding(5px x 5px 10px);
+  border-left: 1px solid $c-white;
+  @include saolText(semi-bold);
+  font-size: $f-size-mini;
+  line-height: $f-line-height-mini;
+  white-space: nowrap;
+  color: $c-white;
+
+  @include mq($bp-mobile-horiz) {
+    @include padding(x x x 12px);
+    font-size: $f-size-h6;
+    line-height: $f-line-height-h6;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    @include padding(8px x 8px 20px);
+    font-size: $f-size-h5;
+    line-height: $f-line-height-h5;
+  }
+}
+
+/* Article Nav -> Share Tools
+   ========================================================================== */
+
+.article-nav__share {
+  position: relative;
+  display: none;
+  @include margin(x -30px x auto);
+  @include padding(x 30px x x);
+
+  @include mq($bp-mobile-horiz) {
+    display: block;
+  }
+}
+
+.article-nav__share-button {
+  @include reset-input;
+  position: relative;
+  visibility: visible;
+  @extend %f-smallcaps--sans-bold;
+  font-size: $f-size-micro;
+  color: $c-white;
+  cursor: pointer;
+  transition: opacity 0.2s $easeInOutQuad;
+
+  .article-nav__share:hover &,
+  .article-nav__share:focus & {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &:focus {
+    outline: 1px dotted $c-red--dark;
+  }
+}
+
+.article-nav__share-list {
+  @include absolute(0 30px x x);
+  @extend %l-social__list;
+  width: 100%;
+  @include margin(0 0 0 auto);
+  transform: translateX(calc(100% + 30px));
+  transition: transform 0.2s $easeInOutQuad;
+
+  .article-nav__share:hover &,
+  .article-nav__share:focus & {
+    transform: translateX(0%);
+  }
+}
+
+/* Article Nav -> Progress
+   ========================================================================== */
+
+.article-nav__progress {
+  @include absolute(x 0 -1px 0);
+  @include size(100%, 5px);
+  z-index: $z-index--3;
+  opacity: 0;
+  transition: opacity 0.2s $easeInOutQuad;
+  display: none;
+
+  @include mq($bp-tablet-vert) {
+    display: block;
+  }
+
+  .article-nav--is-in-view & {
+    opacity: 1;
+  }
+}
+
+.article-nav__progress-bar {
+  height: 5px;
+  width: 0%;
+  @include absolute(x 0 0 0);
+  background-color: $c-red;
+  transition: all 0.1s;
+}

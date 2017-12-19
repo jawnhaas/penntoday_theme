@@ -1,0 +1,256 @@
+/* ==========================================================================
+
+   Pages -> Homepage
+
+   ========================================================================== */
+
+/* Homepage -> Type
+   ========================================================================== */
+
+.homepage__header {
+  @include margin(x x 48px x);
+  @include haptik(bold);
+  color: $c-blue--dark;
+  width: 100%;
+  text-align: center;
+  font-size: $f-size-h5;
+  line-height: $f-line-height-h5;
+
+  @include mq($bp-tablet-vert) {
+    @include margin(x x 60px x);
+    font-size: $f-size-h3--serif;
+    line-height: $f-line-height-h4;
+  }
+
+  @include mq($bp-desktop) {
+    @include margin(x x 80px x);
+    font-size: $f-size-h3;
+    line-height: $f-line-height-h3;
+  }
+
+  &--white {
+    color: $c-white;
+  }
+}
+
+.see-all__link {
+  display: block;
+  @include margin(10px x x x);
+  @extend %f-a;
+  font-size: $f-size-base;
+  transition: all 0.4s $easeInOutExpo;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  &:hover,
+  &:focus {
+    color: $c-neon-yellow;
+  }
+
+  &--yellow {
+    color: $c-neon-yellow;
+
+    &:hover,
+    &:focus {
+      color: $c-white;
+    }
+  }
+
+  &--blue {
+    color: $c-blue--medium;
+
+    &:hover,
+    &:focus {
+      color: $c-red--dark;
+    }
+  }
+}
+
+.homepage-wrapper {
+  @include margin(x x 30px x);
+
+  @include mq($bp-tablet-vert) {
+    @include margin(x x 60px x);
+  }
+
+  @include mq($bp-desktop) {
+    @include margin(x x 80px x);
+  }
+}
+
+.homepage-wrapper--dark {
+  @include margin(x x 30px x);
+  @include padding(48px x);
+  background-color: $c-blue--dark;
+
+
+  @include mq($bp-tablet-vert) {
+    @include margin(x x 60px x);
+    @include padding(60px x);
+  }
+
+  @include mq($bp-desktop) {
+    @include margin(x x 80px x);
+    @include padding(80px x);
+  }
+}
+
+.homepage-wrapper--featured {
+  @include margin(x x 68px x);
+
+  @include mq($bp-tablet-vert) {
+    @include margin(x x 78px x);
+  }
+}
+
+/* Homepage -> Topper
+   ========================================================================== */
+
+.homepage-topper--wrapper {
+  background-color: $c-blue--dark;
+}
+
+.homepage-topper {
+  @extend %l-base__padding;
+
+  @include mq($bp-tablet-vert) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.l-wrapper__article-stream {
+  @include mq($bp-mobile-horiz) {
+    display: flex;
+  }
+
+  @include mq($bp-tablet-vert) {
+    width: 100%;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    width: 50%;
+    border-left: 0;
+  }
+}
+
+.homepage-topper-stream {
+  width: 100%;
+
+  @include mq($bp-tablet-vert) {
+    @include padding(x x x 30px);
+  }
+
+  @include mq($bp-desktop) {
+    @include padding(x x x 36px);
+  }
+
+  @include mq($bp-tablet-horiz) {
+    border-left: 1px solid $c-blue--desat;
+  }
+
+  &:first-child {
+    padding-left: 0;
+
+    @include mq($bp-tablet-horiz) {
+      @include padding(x x x 36px);
+    }
+  }
+
+  &:last-child {
+    @include mq($bp-mobile-horiz) {
+      @include margin(x x x 30px);
+      @include padding(x x x 30px);
+      border-left: 1px solid $c-blue--desat;
+    }
+
+    @include mq($bp-tablet-horiz) {
+      @include padding(x x x 36px);
+    }
+
+    @include mq($bp-desktop) {
+      @include margin(x x x 36px);
+    }
+  }
+
+  .simple-tease {
+    @include mq($bp-mobile-horiz) {
+      &:last-of-type {
+        border: 0;
+        @include margin(x x 0 x);
+        @include padding(x x 0 x);
+      }
+    }
+  } //simple-tease
+}
+
+
+/* Homepage -> News Stream
+   ========================================================================== */
+
+.article-stream__2-col {
+
+  @include mq($bp-mobile-horiz) {
+    display: flex;
+  }
+
+  .l-article-stream {
+    @include padding(x x 0 x);
+
+    @include mq($bp-mobile-horiz) {
+      width: 50%;
+      @include padding(x 24px x x);
+    }
+
+    @include mq($bp-tablet-horiz) {
+      @include margin(x 30px x x);
+      @include padding(x 30px x x);
+    }
+
+    @include mq($bp-desktop) {
+      width: 70%;
+      @include margin(x 36px x x);
+      @include padding(x 36px x x);
+    }
+
+    &:last-child {
+      @include mq($bp-tablet-vert) {
+        @include padding(x 0 x 30px);
+        border-left: 1px solid $c-silver--light;
+      }
+
+      @include mq($bp-tablet-horiz) {
+        @include padding(x x x 0);
+        border-left: 0;
+      }
+
+      @include mq($bp-desktop) {
+        @include padding(x x x 0);
+      }
+    }
+  }
+}
+
+.l-article-stream {
+
+  @include mq($bp-tablet-horiz) {
+    border-right: 1px solid $c-silver--light;
+
+    &:last-child {
+      @include margin(0);
+      @include padding(0);
+      border: 0;
+    }
+  }
+}
+
+.tease-stream {
+  @extend %l-base__bottom-margin;
+}
+
+/* Homepage -> Small Multimedia Teases
+   ========================================================================== */
+
+.l-multimedia {
+  @extend %l-base__bottom-margin;
+}

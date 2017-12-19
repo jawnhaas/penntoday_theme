@@ -1,0 +1,146 @@
+/* ==========================================================================
+
+   Components -> Author Credits
+
+   ========================================================================== */
+
+.author-credits {
+  position: relative;
+  width: 100%;
+  @include margin(5px x x); //make it look more visually aligned with the start of the article text
+}
+
+/* Article Credits -> Layout
+   ========================================================================== */
+
+.author-credits__section {
+  @include margin(x x 15px x);
+  @include padding(15px 0 0);
+  border-top: 1px solid $c-silver--light;
+  @include clearfix;
+
+  @include mq($bp-tablet-horiz) {
+    @include margin(x x 30px x);
+    @include padding(0);
+    border-top: 0;
+  }
+}
+
+.author-credits__dt {
+  width: 100%;
+
+  @include mq($bp-mobile-horiz) {
+    width: 20%;
+    float: left;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    width: 100%;
+    float: none;
+  }
+}
+
+.author-credits__dl {
+  @include margin(0 x);
+  width: 100%;
+
+  @include mq($bp-mobile-horiz) {
+    width: 70%;
+    float: left;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    width: 100%;
+    float: none;
+  }
+}
+
+.article__authors {
+  position: relative;
+  width: 100%;
+  max-width: $l-article-body;
+  @include margin(0 auto);
+  @include padding(30px 0 0);
+
+  @include mq($bp-tablet-horiz) {
+    @include absolute(0 0 x x);
+    @include padding(0 x x 10px);
+    width: 14%;
+  }
+
+  @include mq($bp-desktop) {
+    width: 16%;
+  }
+}
+
+/* Article Credits -> Type
+   ========================================================================== */
+
+.author-credits__text {
+  @extend %f-text--mini;
+  display: block;
+}
+
+.author-credits__title {
+  @extend %f-text--mini-reg;
+}
+
+.author-credits__h {
+  @include margin(x x 8px x);
+  @extend %f-smallcaps--tiny;
+  color: $c-silver-blue;
+
+  @include mq($bp-mobile-horiz) {
+    @include margin(x x 0 x);
+  }
+
+  @include mq($bp-tablet-horiz) {
+    @include margin(x x 8px x);
+  }
+}
+
+.author-credits__list {
+  @extend %f-list;
+  line-height: 1.1;
+}
+
+.author-credits__list-item {
+  @include margin(x x 10px x);
+  @include padding(x x 10px x);
+
+  &:last-child {
+    @include margin(x x 0 x);
+    @include padding(x x 0 x);
+    border: 0;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    border-bottom: 1px solid $c-silver--light;
+  }
+}
+
+/* Article Credits -> Reversed
+   ========================================================================== */
+
+.article--dark {
+
+  .author-credits__section {
+    border-color: $c-blue--desat;
+  }
+
+  .author-credits__text,
+  .author-credits__title,
+  .article__topics-list-item {
+    color: $c-white;
+  }
+
+  .article__topics-link {
+    &:hover {
+      color: $c-neon-yellow;
+    }
+  }
+
+  .author-credits__list-item {
+    border-color: $c-blue--desat;
+  }
+}

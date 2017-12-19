@@ -1,0 +1,112 @@
+/* ==========================================================================
+
+   Components -> Event Feature Large
+
+   ========================================================================== */
+
+.event-feature--large {
+  @include mq($bp-tablet-vert) {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
+
+.event-feature--large__img-wrapper {
+  display: none;
+
+  @include mq($bp-tablet-vert) {
+    display: block;
+    overflow: hidden;
+    width: 50%;
+    max-width: 500px;
+    @include margin(x x 0 x);
+    border-radius: 50%;
+  }
+}
+
+.event-feature--large__img {
+  @extend %l-base__img;
+}
+
+.event-feature--large__content {
+  @include mq($bp-tablet-vert) {
+    width: 50%;
+    @include margin(x x x 30px);
+  }
+}
+
+.event-feature--large__date {
+  @include margin(0 x);
+  @include saolDisplay(bold);
+  font-size: $f-size-subhead;
+  color: $c-neon-yellow;
+  line-height: $f-line-height-h4--sans;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h2;
+    color: $c-white;
+
+    &::after {
+      @include pseudo;
+      display: block;
+      width: 100%;
+      height: 10px;
+      @include margin(20px x 30px x);
+      background-color: $c-neon-yellow;
+    }
+  }
+
+  @include mq($bp-desktop) {
+    font-size: $f-size-h1;
+  }
+}
+
+.event-feature--large__description {
+  @include margin(0 x 15px x);
+  @include haptik(regular);
+  font-size: $f-size-mini;
+  line-height: $f-line-height-mini--sans;
+  color: $c-white;
+
+  @include mq($bp-tablet-vert) {
+    @include margin(0 x 30px x);
+    font-size: $f-size-base;
+    line-height: $f-line-height-base--sans;
+  }
+
+  @include mq($bp-desktop-xl) {
+    font-size: $f-size-h4;
+    line-height: $f-line-height-h4--sans;
+  }
+}
+
+.event-feature--large__title {
+  @include margin(0 x 10px x);
+  @include haptik(bold);
+  font-size: $f-size-h5;
+  line-height: $f-line-height-h5--sans;
+  color: $c-white;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h4;
+    line-height: $f-line-height-h4--sans;
+  }
+
+  @include mq($bp-desktop) {
+    font-size: $f-size-h3;
+    line-height: $f-line-height-h3--sans;
+  }
+}
+
+.event-feature--large__img-wrapper--small {
+  float: right;
+  overflow: hidden;
+  @include size(100px);
+  @include margin(x x 5px 5px);
+  border-radius: 100%;
+
+  @include mq($bp-tablet-vert) {
+    display: none;
+  }
+}

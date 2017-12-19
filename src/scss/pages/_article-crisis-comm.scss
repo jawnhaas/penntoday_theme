@@ -1,0 +1,198 @@
+/* ==========================================================================
+
+   Pages -> Crisis Communication Article
+
+   ========================================================================== */
+
+.article--crisis {
+
+  .article__wrapper {
+    max-width: $l-site-content;
+    @include margin(x auto);
+
+    @include mq($bp-tablet-vert) {
+      display: flex;
+    }
+  }
+
+  .article__header {
+    max-width: $l-article-body;
+    @include margin(0 auto);
+  }
+
+  .article__header-wrapper {
+    @include margin(x x 30px x);
+
+    @include mq($bp-tablet-vert) {
+      width: 50%;
+      @include padding(x 0 x x);
+    }
+  }
+
+  .article__h {
+    font-size: $f-size-h3;
+    line-height: $f-line-height-h3;
+    text-align: left;
+    @include margin(x x 20px x);
+
+    @include mq($bp-tablet-horiz) {
+      font-size: $f-size-h2;
+      line-height: $f-line-height-h2;
+    }
+
+    @include mq($bp-tablet-horiz) {
+      @include margin(x x 60px x);
+      font-size: 60px;
+      line-height: 1.1;
+    }
+  }
+
+  .article__meta {
+    text-align: left;
+
+    @include mq($bp-tablet-vert) {
+      font-size: $f-size-micro;
+    }
+
+    @include mq($bp-tablet-horiz) {
+      font-size: $f-size-mini;
+    }
+  }
+
+  .date {
+    display: block;
+    @include margin(x x 25px x);
+
+    @include mq($bp-tablet-horiz) {
+      @include margin(x x 50px x);
+    }
+  }
+
+  .person {
+    display: block;
+    line-height: 1.2;
+    @include margin(x x 10px x);
+    @include padding(x x 10px x);
+    border-bottom: 1px solid $c-silver--light;
+
+    @include mq($bp-tablet-horiz) {
+      @include margin(x x 20px x);
+      @include padding(x x 20px x);
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+
+
+  .article__body {
+    p {
+      @include mq($bp-tablet-vert) {
+        font-size: $f-size-base;
+      }
+
+      @include mq($bp-tablet-horiz) {
+        font-size: $f-size-p;
+      }
+    }
+
+    > p {
+      &:first-of-type:first-letter {
+        float: none;
+        display: inline;
+        @include margin(0);
+        @include padding(0);
+        border: 0;
+        box-shadow: none;
+        font-family: inherit;
+        font-weight: inherit;
+        font-size: inherit;
+        font-style: inherit;
+        color: inherit;
+      }
+    }
+
+    .article__intro {
+      @include padding(x x 30px x);
+      border-bottom: 1px solid $c-blue--dark;
+      @include haptik(regular);
+      font-size: $f-size-mini;
+      line-height: $f-line-height-p;
+
+      @include mq($bp-mobile-horiz) {
+        font-size: $f-size-base;
+        line-height: $f-line-height-p--sans;
+      }
+
+      @include mq($bp-tablet-horiz) {
+        @include margin(x x 60px x);
+        @include padding(x x 60px x);
+        font-size: $f-size-p;
+      }
+
+      @include mq($bp-desktop) {
+        font-size: $f-size-h4;
+      }
+    }
+
+  }
+
+  .pullquote {
+    @include margin(50px x x x);
+
+    p {
+      @include padding(0);
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .additional-resources {
+    @include margin(60px auto 35px auto);
+    @include padding(x x 30px x);
+    border-top: 10px solid $c-blue--dark;
+    max-width: $l-article-body;
+  }
+
+  .additional-resources__head {
+  @include margin(30px x 15px x);
+  }
+
+  .additional-resources__list {
+    @extend %f-list;
+    @extend %f-p__serif;
+    @include margin(x x 0 x);
+    line-height: $f-line-height-base--sans;
+  }
+
+  .additional-resources__item {
+    position: relative;
+    @include margin(x x 10px x);
+    @include haptik(regular);
+
+    &::before {
+      @include absolute(0 x x 0);
+      content: "— ";
+      font-weight: bold;
+      color: $c-red;
+    }
+  }
+
+  .additional-resources__link {
+    @extend %f-link;
+    @extend %f-link-reset;
+    @include padding(x x x 40px);
+    display: block;
+    transition: all 0.2s $easeOutQuad;
+
+    &:hover,
+    &:focus {
+      color: $c-red;
+    }
+  }
+
+}

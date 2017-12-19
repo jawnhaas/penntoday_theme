@@ -1,0 +1,637 @@
+/* ==========================================================================
+
+   Pages -> Article
+
+   ========================================================================== */
+
+.article {
+  position: relative;
+}
+
+.article__wrapper {
+  @extend %l-base__padding;
+}
+
+.article__content {
+  position: relative;
+  max-width: $l-post-content;
+  @include margin(0 auto);
+  @include padding(x x 0 x);
+}
+
+.article__content-wrapper,
+.article__header-wrapper {
+  @extend %l-base__wrapper;
+}
+
+.article__wrapper + .article__related {
+  @include margin(64px x x x);
+}
+
+/* Article -> Header Styles
+   ========================================================================== */
+
+.article__header {
+  @extend %l-post__header;
+  @include margin(x auto 30px auto);
+  text-align: center;
+
+  @include mq($bp-tablet-vert) {
+    @include margin(x x 60px x);
+  }
+}
+
+.article__h {
+  @include margin(0 x 10px x);
+  @include fluid-font-size(32px, 84px, 320px, 1400px);
+}
+
+.article__subhead {
+  @include margin(0);
+  @include haptik(regular);
+  font-size: $f-size-h5;
+  line-height: $f-line-height-h5--sans;
+  color: $c-blue--dark;
+
+  @include mq($bp-mobile-horiz) {
+    font-size: $f-size-h4;
+    line-height: $f-line-height-h4--sans;
+  }
+
+  @include mq($bp-tablet-vert) {
+    font-size: 28px;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    font-size: $f-size-subhead;
+  }
+}
+
+.article__meta {
+  @include haptik(regular);
+  font-size: $f-size-micro;
+  color: $c-silver-blue;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-base;
+  }
+}
+
+.article__category {
+  @extend %f-smallcaps;
+  @include dropShadowBox($c-red--dark);
+  @include margin(x x 25px x);
+  font-size: 11px;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-nano;
+  }
+
+  @include mq($bp-laptop) {
+    @include margin(x x 40px x);
+    font-size: $f-size-micro;
+  }
+}
+
+/* Article -> Small Header Styles
+   ========================================================================== */
+.article__header--small {
+  max-width: $l-article-body;
+
+  .article__h {
+    @include fluid-font-size(32px, 74px, 320px, 1400px);
+  }
+}
+
+/* Article -> Body Styles
+   ========================================================================== */
+
+.article__body {
+  @extend %l-post__body;
+  @include margin(x auto 0 x);
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  hr {
+    max-width: $l-article-body;
+    @include margin(x auto);
+  }
+
+  h1 {
+    @extend %f-post__h1;
+
+    &:after {
+      @include pseudo;
+      display: block;
+      @include size(100%, 10px);
+      @include margin(10px x x);
+      background-color: $c-blue--dark;
+    }
+  }
+
+  h2 {
+    @extend %f-post__h2;
+  }
+
+  h3 {
+    @extend %f-post__h3;
+  }
+
+  h4 {
+    @extend %f-post__h4;
+  }
+
+  h5 {
+    @extend %f-post__h5;
+  }
+
+  h6 {
+    @extend %f-post__h6;
+  }
+
+  a {
+    @extend %f-post__a;
+  }
+
+  p {
+    @extend %f-p__serif;
+    @include margin(25px auto);
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    @include mq($bp-tablet-vert) {
+      @include margin(30px auto);
+    }
+  }
+
+  > p {
+    &:first-of-type:first-letter {
+      @extend %f-post__drop-cap--boxed;
+    }
+  }
+
+  img {
+    @extend %l-base__img;
+    user-select: none;
+  }
+
+  .pullquote {
+
+    > p {
+        max-width: 100%;
+      }
+  }
+
+  .article__smallprint {
+    font-size: $f-size-mini;
+    font-style: italic;
+    color: $c-silver-blue;
+  }
+
+  .img-container {
+    cursor: url('/static/img/svg/icon-zoom.svg'), w-resize;
+  }
+}
+
+/* Article -> Social
+   ========================================================================== */
+
+.article__social-list {
+  @extend %f-list;
+  @include margin(x x x -10px);
+}
+
+.article__social-list-item {
+  display: inline-block;
+
+  a {
+    box-shadow: none;
+  }
+}
+
+.article__social-link {
+  @include size(35px);
+  display: block;
+  text-indent: -9999px;
+  transform: scale(1, 1);
+  transition: all 0.2s $easeOutQuad;
+
+  &--twitter {
+     @include svg(icon-twitter--dark, 50% 50%, transparent, 55%);
+  }
+
+  &--facebook {
+     @include svg(icon-facebook--dark, 50% 50%, transparent, 30%);
+  }
+
+  &--email {
+    @include svg(icon-email--dark, 50% 50%, transparent, 60%);
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale(1.15, 1.15);
+  }
+}
+
+
+/* Article -> Pullquote Share Tools
+   ========================================================================== */
+
+blockquote {
+  .article__social-list {
+    @include padding(30px 0 0);
+  }
+
+  .article__social-link {
+    box-shadow: none;
+  }
+}
+
+/* Article -> Highlight Share Tool
+   ========================================================================== */
+
+.article__share-tool {
+  display: none;
+  @include padding(3px);
+  background-color: $c-blue--dark;
+  z-index: $z-index--7;
+
+  &::after {
+    @include pseudo;
+    @include triangle(10px, $c-blue--dark, down);
+    @include absolute(x x -5px calc(50% - 2px));
+    display: block;
+  }
+
+  .article__social-list {
+    @include margin(x x x 0);
+    @include padding(x x x 0);
+  }
+
+  .article__social-list-item {
+    @include padding(x 0 x x);
+
+    a {
+      border: 0;
+      transform: scale(1, 1);
+      transition: all 0.2s $easeOutQuad;
+
+      &:hover,
+      &:focus {
+        transform: scale(1.15, 1.15);
+      }
+    }
+  }
+
+  .article__social-link {
+    @include size(30px);
+    box-shadow: none;
+
+    &--twitter {
+      @include svg(icon-twitter, 50% 50%, transparent, 55%);
+    }
+
+    &--facebook {
+      @include svg(icon-facebook, 50% 50%, transparent, 30%);
+    }
+  }
+}
+
+/* Article -> Topics
+   ========================================================================== */
+
+.article__topics-list {
+  @extend %f-list;
+  line-height: 1.1;
+}
+
+.article__topics-list-item {
+  @extend %f-text--mini;
+  display: inline-block;
+}
+
+.article__topics-link {
+  @extend %f-link;
+  @extend %f-link-reset;
+
+  &:hover,
+  &:focus {
+    color: $c-blue--medium;
+  }
+}
+
+
+/* Article -> Image & Caption Styles
+   ========================================================================== */
+
+.article__featured-img {
+  max-width: $l-post-content;
+  @include margin(0 auto 30px);
+
+  .img-container {
+    cursor: url('/static/img/svg/icon-zoom.svg'), w-resize;
+  }
+}
+
+.article__img {
+  @extend %l-base__img;
+}
+
+
+.img-container {
+  &--full-width {
+    width: 100%;
+
+    > img {
+      @extend %l-base__img;
+    }
+  }
+
+  &--fullbleed {
+    @extend %l__img--fullbleed;
+
+    .caption {
+      @include padding(20px x 0);
+      @include margin(x 24px);
+      border-bottom: 0;
+
+      @include mq($bp-tablet-vert) {
+        @include margin(x 50px);
+      }
+    }
+  }
+
+  &--column {
+    @include margin(0 auto);
+    max-width: $l-article-body;
+  }
+
+  &--leftalign,
+  &--rightalign {
+
+    @include mq($bp-tablet-vert) {
+      width: 40%;
+    }
+  }
+
+  &--leftalign {
+    @include mq($bp-tablet-vert) {
+      float: left;
+      @include margin(25px 25px 25px x);
+    }
+  }
+
+  &--rightalign {
+    @include mq($bp-tablet-vert) {
+      float: right;
+      @include margin(25px x 25px 25px);
+    }
+  }
+}
+
+.caption {
+  @include padding(7px 0 10px 0);
+  border-bottom: 1px solid $c-silver--light;
+  @extend %f-caption__sans;
+}
+
+.img-credit {
+  color: $c-silver-blue;
+}
+
+/* Article -> QA
+   ========================================================================== */
+
+.article__body {
+  .article__q-a__question {
+    @include clearfix;
+    @include haptik(bold);
+    line-height: $f-line-height-base--sans;
+
+    &::before {
+      float: left;
+      content:'Q';
+      display: block;
+      @include size(40px);
+      @include margin(5px 15px 15px x);
+      border: 2px solid $c-blue--dark;
+      font-size: 27px;
+      text-align: center;
+      box-shadow: -2px 2px 0px $c-blue--dark;
+    }
+
+    @include mq($bp-tablet-vert) {
+      &::before {
+        @include margin(x 20px x x);
+        @include size(50px);
+        @include margin(5px 15px x x);
+        font-size: 35px;
+      }
+    }
+  }
+
+  .article__q-a__question-text {
+    @include mq($bp-tablet-vert) {
+      display: block;
+      @include padding(x x x 65px);
+    }
+  }
+
+  .article__q-a__answer {
+
+    @include mq($bp-tablet-vert) {
+      @include clearfix;
+
+      &::before {
+        @include pseudo;
+        float: left;
+        @include size(50px, 4px);
+        @include margin(14px 20px x x);
+        background-color: $c-blue--dark;
+      }
+    }
+  }
+
+  .article__q-a__answer-text {
+    @include mq($bp-tablet-vert) {
+      display: block;
+      @include padding(x x x 65px);
+    }
+  }
+}
+
+/* Article -> By the numbers
+   ========================================================================== */
+
+.by-the-numbers__list {
+  @extend %f-list;
+  text-align: center;
+}
+
+.by-the-numbers__item {
+  @include margin(x x 30px x);
+}
+
+.by-the-numbers__number {
+  display: block;
+  position: relative;
+  @include margin(x x 10px x);
+  @include saolDisplay(bold);
+  font-size: $f-size-h3;
+
+  &::after {
+    @include pseudo;
+    @include absolute(x x -15px calc(50% - 25px));
+    @include size(50px, 4px);
+    @include margin(x x 12px x);
+    background-color: $c-red;
+  }
+
+  @include mq($bp-tablet-vert) {
+    @include margin(x x 20px x);
+    font-size: $f-size-h2;
+
+    &::after {
+      @include margin(x x 15px x);
+    }
+  }
+}
+
+.by-the-numbers__text {
+  @include haptik(regular);
+  font-size: $f-size-base;
+  line-height: $f-line-height-base--sans;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h4;
+    line-height: $f-line-height-h4--sans;
+  }
+}
+
+/* Article -> Dark
+   ========================================================================== */
+
+.article--dark {
+  background-color: $c-blue--dark;
+
+  .article__body {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    ul,
+    ol {
+      color: $c-white;
+    }
+
+    > p {
+      &:first-of-type:first-letter {
+        @extend %f-post__drop-cap--reversed;
+      }
+    }
+
+    a {
+      @extend %f-post__a--reversed;
+    }
+
+    h1{
+      &::after {
+        background-color: $c-blue--desat;
+      }
+    }
+
+    hr {
+      border-color: $c-blue--desat;
+    }
+
+    .article__smallprint {
+      color: $c-silver-blue;
+    }
+  }
+
+  .pullquote {
+    &::before {
+      color: $c-neon-yellow;
+    }
+
+    .article__social-link {
+      box-shadow: none;
+    }
+
+    .article__social-list-item {
+      opacity: 0.5;
+    }
+  }
+
+  .article__h {
+    color: $c-white;
+  }
+
+  .article__subhead {
+    color: $c-white;
+  }
+
+  .article__category {
+    @include dropShadowBox($c-neon-yellow);
+  }
+
+  .caption {
+    border-bottom: 1px solid $c-blue--desat;
+    color: $c-white;
+  }
+
+  .article__social-link {
+    &--twitter {
+       @include svg(icon-twitter, 50% 50%, transparent, 55%);
+    }
+
+    &--facebook {
+       @include svg(icon-facebook, 50% 50%, transparent, 30%);
+    }
+
+    &--email {
+      @include svg(icon-email, 50% 50%, transparent, 60%);
+    }
+  }
+
+  .article__q-a__question {
+    &::before {
+      color: $c-neon-yellow;
+      border-color: $c-neon-yellow;
+      box-shadow: -2px 2px 0px $c-neon-yellow;
+    }
+  }
+
+  .article__q-a__answer {
+    @include mq($bp-tablet-vert) {
+      &::before {
+        background-color: $c-neon-yellow;
+      }
+    }
+  }
+
+  .by-the-numbers__number {
+    color: $c-neon-yellow;
+
+    &::after {
+      background-color: $c-neon-yellow;
+    }
+  }
+}//article-dark
+
+
+
+

@@ -1,0 +1,88 @@
+/* ==========================================================================
+
+   Pages -> Event Archive
+
+   ========================================================================== */
+
+.event__wrapper {
+  @extend %l-base__wrapper;
+}
+
+.event-archive__header {
+  @extend %l-base__bottom-padding;
+}
+
+.event-archive__header-h {
+  @include haptik(bold);
+  color: $c-white;
+  font-size: $f-size-h5;
+  line-height: $f-line-height-h5--sans;
+  text-align: center;
+  margin: 0;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h3;
+    line-height: $f-line-height-h3--sans;
+  }
+}
+
+/* Event Archive -> Featured
+   ========================================================================== */
+
+.event__featured {
+  @extend %l-base__padding;
+  background-color: $c-blue--dark;
+}
+
+.event__topper {
+  @include mq($bp-mobile-horiz) {
+    display: flex;
+  }
+}
+
+.event-archive__topper {
+  @include margin(x x 30px x);
+  @include padding(x x 30px x);
+  border-bottom: 1px solid $c-blue--desat;
+
+  @include mq($bp-tablet-vert) {
+    @include margin(x x 60px x);
+    @include padding(x x 60px x);
+  }
+
+  @include mq($bp-desktop) {
+    align-items: center;
+  }
+}
+
+.event__topper__articles {
+
+  @include mq($bp-tablet-vert) {
+    margin: 0 -30px;
+    display: flex;
+  }
+}
+
+/* Event Archive -> Feed
+   ========================================================================== */
+
+.event-archive__feed {
+  max-width: $l-post-body;
+  margin: 0 auto;
+  @include padding(50px x);
+
+  @include mq($bp-tablet-vert) {
+    @include padding(60px x);
+  }
+
+  @include mq($bp-desktop) {
+    @include padding(80px x);
+  }
+}
+
+/* Event Archive -> Filter
+   ========================================================================== */
+
+.event-archive__filter-item {
+  padding-bottom: 60px;
+}

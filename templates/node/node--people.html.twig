@@ -1,0 +1,35 @@
+<div class="author_page">
+<div class="author__info-wrapper">
+  <div class="author__info">
+    {% if content.field_image|render is not empty %}
+      <div class="author__avatar">
+        <img src="{{ content.field_image|render|trim }}" class="author__img">
+      </div>
+    {% endif %}
+    <div class="author__text">
+      <h1 class="author__name">{{ label }}</h1>
+      {% if content.field_title|render is not empty %}
+        <h2 class="author__title">{{ content.field_title }}</h2>
+      {% endif %}
+      <div class="author__bio">{{ content.body }}</div>
+      <ul class="author__contact">
+        {% if content.field_email|render is not empty %}
+          <li class="author__contact-item author__contact-item--email">
+            <a title="Author Email" href="" class="author__contact-link">{{ content.field_email }}</a>
+          </li>
+        {% endif %}
+        {% if content.field_phone|render is not empty %}
+          <li class="author__contact-item author__contact-item--phone">
+            {{ content.field_phone }}
+          </li>
+        {% endif %}
+        {% if content.field_twitter|render is not empty %}
+          <li class="author__contact-item author__contact-item--twitter">
+            <a title="Author Email" href="" class="author__contact-link">{{ content.field_twitter }}</a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</div>
+</div>

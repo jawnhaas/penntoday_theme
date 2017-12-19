@@ -1,0 +1,21 @@
+<?php
+  function penntoday_theme_preprocess_page(&$variables) {
+    $variables['taxonomy_menu_nav'] = views_embed_view('taxonomy_menu', 'nav');
+    $variables['taxonomy_menu_menu'] = views_embed_view('taxonomy_menu', 'menu');
+    $variables['menu_events'] = views_embed_view('events', 'events_menu');
+
+  }
+
+  /**
+   * Implements hook_editor_js_settings_alter
+   */
+  function penntoday_theme_editor_js_settings_alter(array &$settings) {
+    foreach ($settings['editor']['formats'] as $name => $value) {
+      print 'ckeditorbody';
+       $settings['editor']['formats'][$name]['editorSettings']['bodyClass'] = 'article__body';
+     }
+  }
+
+  function penntoday_theme_theme_suggestions_taxonomy_term_alter(&$suggestions, $vars, $hook) {
+    $suggestions[] = 'taxonomy_term__' . $vars['elements']['#view_mode'];
+  }

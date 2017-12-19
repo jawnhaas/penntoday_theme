@@ -1,0 +1,18 @@
+name: Penn Today
+type: theme
+description: 'A Parent Theme for Penn Today'
+core: 8.x
+ckeditor_stylesheets:
+  - css/main.css
+libraries:
+  - penntoday_theme/global-styling
+  - penntoday_theme/global-scripts
+base theme: stable
+regions:
+  header: Header
+  prefix: Main Prefix
+  content: Content
+  suffix: Main Suffix
+  footer: Footer
+stylesheets-remove:
+  - core/assets/vendor/normalize-css/normalize.css

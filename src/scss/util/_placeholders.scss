@@ -1,0 +1,660 @@
+/* ==========================================================================
+
+   Util -> Placeholders
+
+   ========================================================================== */
+
+/* Placeholders -> Fonts -> Base Display
+   ========================================================================== */
+
+%f-h1__display {
+  @include saolDisplay(bold);
+  font-size: $f-size-h1;
+  line-height: $f-line-height-h1;
+}
+
+/* Placeholders -> Fonts -> Base Serif
+   ========================================================================== */
+
+%f-h1__serif {
+  @include saolDisplay(bold);
+  font-size: $f-size-h1;
+  line-height: $f-line-height-h1;
+}
+
+%f-h2__serif {
+  @include saolDisplay(bold);
+  font-size: $f-size-h3;
+  line-height: $f-line-height-h3;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h2;
+    line-height: $f-line-height-h2;
+  }
+}
+
+%f-h3__serif {
+  @include saolText(semi-bold);
+  font-size: $f-size-h3;
+  line-height: $f-line-height-h3;
+}
+
+%f-h4__serif {
+  @include saolText(semi-bold);
+  font-size: $f-size-h5;
+  line-height: $f-line-height-h5;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h4;
+  line-height: $f-line-height-h4;
+  }
+}
+
+%f-h5__serif {
+  @include saolText(semi-bold);
+  font-size: $f-size-h6;
+  line-height: $f-line-height-h6;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h5;
+  line-height: $f-line-height-h5;
+  }
+}
+
+%f-p__serif {
+  font-family: Georgia, serif;
+  font-size: $f-size-base;
+  line-height: $f-line-height-base-plus;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-p;
+    line-height: $f-line-height-p;
+  }
+}
+
+%f-p__sans {
+  @include haptik(regular);
+  font-size: $f-size-base;
+  line-height: $f-line-height-base--sans;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-p;
+    line-height: $f-line-height-p--sans;
+  }
+}
+
+%f-p__serif-sm {
+  font-family: Georgia, serif;
+  font-size: $f-size-base;
+  line-height: $f-line-height-base-plus;
+}
+
+%f-tease-head__serif {
+  @include saolText(semi-bold);
+  font-size: $f-size-h5;
+  line-height: $f-line-height-h5;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h4;
+    line-height: $f-line-height-h5;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    font-size: $f-size-h3--serif;
+    line-height: $f-line-height-h2;
+  }
+
+  @include mq($bp-desktop) {
+    font-size: $f-size-h3;
+    line-height: $f-line-height-h2;
+  }
+}
+
+%f-tease-dek__serif {
+  @include haptik(regular);
+}
+
+/* Placeholders -> Fonts -> Base Sans
+   ========================================================================== */
+
+%f-h2__sans {
+  @include haptik(bold);
+  font-size: $f-size-h2;
+  line-height: $f-line-height-h2--sans;
+}
+
+%f-h3__sans {
+  @include haptik(bold);
+  font-size: $f-size-h4;
+  line-height: $f-line-height-h4--sans;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h3;
+    line-height: $f-line-height-h3--sans;
+  }
+}
+
+%f-micro__sans {
+  font-size: $f-size-micro;
+  line-height: $f-line-height-micro--sans;
+}
+
+%f-mini__sans {
+  font-size: $f-size-mini;
+  line-height: $f-line-height-mini__sans;
+}
+
+%f-h4__sans {
+  @include haptik(bold);
+  font-size: $f-size-h5;
+  line-height: $f-line-height-h5;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h4;
+    line-height: $f-line-height-h4;
+  }
+}
+
+%f-h5__sans {
+  @include haptik(bold);
+  font-size: $f-size-h6;
+  line-height: $f-line-height-h6;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h5;
+    line-height: $f-line-height-h5;
+  }
+}
+
+%f-caption__sans {
+  @include haptik(regular);
+  font-size: $f-size-micro;
+  line-height: $f-line-height-micro--sans;
+  color: $c-blue--dark;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-mini;
+    line-height: $f-line-height-mini--sans;
+  }
+}
+
+%f-text__sans {
+  @include margin(0);
+  @include haptik(regular);
+  font-size: $f-size-mini;
+  line-height: $f-line-height-mini--sans;
+  color: $c-white;
+}
+
+/* Placeholders -> Fonts -> Base Typography
+   ========================================================================== */
+
+%f-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+%f-a,
+%f-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+%f-link-reset {
+  box-shadow: none;
+  color: inherit;
+
+  &:hover,
+  &:focus {
+    color: inherit;
+  }
+}
+
+%f-smallcaps {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+%f-smallcaps--sans-bold {
+  @include haptik(bold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+%f-smallcaps--tiny {
+  @include haptik(bold);
+  font-size: $f-size-tiny;
+  line-height: $f-line-height-micro;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+}
+
+%f-link__big-red {
+  box-shadow: inset 0 0 0 0 $c-red;
+  transition: box-shadow .3s ease;
+
+  &:hover {
+    box-shadow: inset 0 -6px 0 0 $c-red;
+  }
+}
+
+%f-link__big-yellow {
+  box-shadow: inset 0 0 0 0 $c-neon-yellow;
+  transition: box-shadow .3s ease;
+
+  &:hover {
+    box-shadow: inset 0 -6px 0 0 $c-neon-yellow;
+  }
+}
+
+%f-text--mini {
+  @include haptik(bold);
+  color: $c-blue--dark;
+  font-size: $f-size-mini;
+}
+
+%f-text--mini-reg {
+  @include haptik(normal);
+  color: $c-blue--dark;
+  font-size: $f-size-mini;
+}
+
+// %f-category-heading {
+//   @include padding(30px x);
+//   @include saolDisplay(bold);
+//   font-size: $f-size-base;
+//   line-height: $f-line-height-base;
+
+//   @include mq($bp-mobile-horiz) {
+//     @include padding(55px x);
+//     font-size: $f-size-base-plus;
+//   }
+
+//   @include mq($bp-tablet-vert) {
+//     @include padding(65px x);
+//     font-size: $f-size-h3;
+
+//   }
+
+//   @include mq($bp-desktop-xl) {
+//     @include padding(72px x);
+//   }
+
+//   > * {
+//     width: 100%;
+//   }
+// }
+
+%f-page__subhead {
+  @extend %f-h3__sans;
+  text-align: center;
+  margin: 0 0 48px;
+  color: $c-blue;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  border-top: 2px solid $c-blue--dark;
+  padding-top: 36px;
+  @include haptik(bold);
+  font-size: $f-size-h4;
+  line-height: $f-line-height-h4--sans;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h3;
+    line-height: $f-line-height-h3--sans;
+    margin-bottom: 72px;
+  }
+}
+
+%f-link-underline--small {
+  text-shadow: -1px -1px 0 $c-blue--dark,
+                1px -1px 0 $c-blue--dark,
+               -1px  1px 0 $c-blue--dark,
+                1px  1px 0 $c-blue--dark;
+  background-image: linear-gradient($c-blue--dark 50%, $c-blue--dark 50%);
+  background-repeat: repeat-x;
+  background-size: 1px 2px;
+
+  &:hover,
+  &:focus {
+    background-image: linear-gradient($c-red 50%, $c-red 50%);
+  }
+}
+
+%f-link-underline--large {
+  text-shadow: -2px -2px 0 $c-blue--dark,
+                2px -2px 0 $c-blue--dark,
+               -2px 2px 0 $c-blue--dark,
+                2px 2px 0 $c-blue--dark;
+  background-image: linear-gradient($c-blue--dark 50%, $c-blue--dark 50%);
+  background-repeat: repeat-x;
+  background-size: 2px 4px;
+
+  &:hover,
+  &:focus {
+    background-image: linear-gradient($c-red 50%, $c-red 50%);
+  }
+}
+
+/* Placeholders -> Fonts -> Base Post / Article
+   ========================================================================== */
+
+%f-post__drop-cap--boxed {
+  float: left;
+  display: block;
+  position: relative;
+  @include margin(7px 10px 5px 6px);
+  @include padding(10px 15px 5px 15px);
+  border: 2px solid $c-blue--dark;
+  @include saolDisplay(bold);
+  color: $c-blue--dark;
+  font-size: $f-size-h2;
+  line-height: 1;
+  box-shadow: -5px 5px 0px $c-blue--dark;
+
+  @include mq($bp-tablet-vert) {
+    @include padding(17px 28px x 28px);
+    font-size: $f-size-drop-cap-sm;
+  }
+
+  @include mq($bp-laptop) {
+    @include margin(10px 17px x x);
+    @include padding(20px 30px 14px 30px);
+  }
+}
+
+%f-post__drop-cap--reversed {
+  float: left;
+  display: block;
+  position: relative;
+  @include margin(7px 10px 5px 6px);
+  @include padding(10px 15px 5px 15px);
+  border: 2px solid $c-blue--dark;
+  @include saolDisplay(bold);
+  color: $c-blue--dark;
+  font-size: $f-size-h2;
+  line-height: 1;
+  box-shadow: -6px 5px 0px $c-white;
+  background-color: $c-neon-yellow;
+
+  @include mq($bp-tablet-vert) {
+    @include padding(17px 28px x 28px);
+    font-size: $f-size-drop-cap-sm;
+  }
+
+  @include mq($bp-laptop) {
+    @include margin(10px 17px x x);
+    @include padding(20px 30px 14px 30px);
+  }
+}
+
+%f-post__a {
+  text-decoration: none;
+  color: inherit;
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 1px 0 $c-red;
+  transition: all 0.2s $easeOutQuad;
+
+  &:hover,
+  &:focus {
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 0 0 $c-red;
+    color: $c-red--dark;
+  }
+}
+
+%f-post__a--reversed {
+  text-decoration: none;
+  color: inherit;
+  box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 1px 0 $c-neon-yellow;
+  transition: all 0.2s $easeOutQuad;
+
+  &:hover,
+  &:focus {
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 0 0 $c-neon-yellow;
+    color: $c-neon-yellow;
+  }
+}
+
+%f-post__h1 {
+  @include saolDisplay(bold);
+  font-size: 30px;
+  line-height: $f-line-height-h3;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h2;
+    line-height: $f-line-height-h2;
+  }
+}
+
+%f-post__h2 {
+  @include saolDisplay(bold);
+  font-size: $f-size-h4;
+  line-height: $f-line-height-h4;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h3;
+    line-height: $f-line-height-h3;
+  }
+}
+
+%f-post__h3 {
+  @include haptik(bold);
+  font-size: $f-size-h5;
+  line-height: $f-line-height-h5--sans;
+
+  @include mq($bp-tablet-vert) {
+    font-size: 30px;
+    line-height: $f-line-height-h3--sans;
+  }
+}
+
+%f-post__h4 {
+  @include haptik(bold);
+  font-size: $f-size-h6;
+  line-height: $f-line-height-h6--sans;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h4;
+    line-height: $f-line-height-h4--sans;
+  }
+}
+
+%f-post__h5 {
+  @extend %f-smallcaps;
+  @include haptik(bold);
+  font-size: $f-size-mini;
+  line-height: $f-line-height-mini--sans;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h6;
+    line-height: $f-line-height-h6--sans;
+  }
+}
+
+%f-post__h6 {
+  @extend %f-smallcaps;
+  @include haptik(bold);
+  font-size: $f-size-micro;
+  line-height: $f-line-height-micro--sans;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-mini;
+    line-height: $f-line-height-mini--sans;
+  }
+}
+
+
+/* Placeholders -> Base Layout
+   ========================================================================== */
+
+%l-base__img,
+%l-base__video {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+%l-base__bottom-margin {
+  @include margin(x x 45px x);
+
+  @include mq($bp-mobile-horiz) {
+    @include margin(x x 60px x);
+  }
+
+  @include mq($bp-tablet-vert) {
+    @include margin(x x 90px x);
+  }
+
+  @include mq($bp-desktop) {
+    @include margin(x x 120px x);
+  }
+}
+
+%l-base__padding {
+  @include padding(30px 0);
+
+  @include mq($bp-tablet-vert) {
+    @include padding(60px 0);
+  }
+}
+
+%l-base__top-padding {
+  padding: 48px 0 0;
+
+  @include mq($bp-tablet-vert) {
+    padding: 64px 0 0;
+  }
+
+  @include mq($bp-tablet-horiz) {
+    padding: 84px 0 0;
+  }
+}
+
+%l-base__bottom-padding {
+  padding: 0 0 30px 0;
+
+  @include mq($bp-tablet-vert) {
+    padding: 0 0 60px 0;
+  }
+}
+
+%l-base__wrapper {
+  @include padding(x 21px);
+
+  @include mq($bp-tablet-vert) {
+    @include padding(x 48px);
+  }
+
+  @include mq($bp-tablet-horiz) {
+    @include padding(x 60px);
+  }
+}
+
+%l-base__headshot {
+  border-radius: 100%;
+  border: 2px solid $c-blue--dark;
+  overflow: hidden;
+}
+
+%l-social__list {
+  padding: 0;
+  list-style: none;
+
+  li {
+    padding-right: 12px;
+    display: inline-block;
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  a {
+    display: block;
+    transition: opacity 0.2s $easeInOutQuad;
+
+    &:focus,
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  a[class$="--twitter"] {
+    @include svg(icon-twitter, 50% 50%, transparent, 100%);
+    @include size(21px, 24px);
+
+    // @include mq($bp-tablet-horiz) {
+    //   @include size(25px, 27px);
+    // }
+  }
+
+  a[class$="--email"] {
+    @include svg(icon-email, 50% 50%, transparent, 100%);
+    @include size(21px, 24px);
+
+    // @include mq($bp-tablet-horiz) {
+    //   @include size(28px, 30px);
+    // }
+  }
+
+  a[class$="--facebook"] {
+    @include svg(icon-facebook, 50% 50%, transparent, 100%);
+    @include size(11px, 26px);
+
+    // @include mq($bp-tablet-horiz) {
+    //   @include size(12px, 28px);
+    // }
+  }
+}
+
+/* Placeholders -> Forms and Buttons
+   ========================================================================== */
+
+%input {
+  padding: 0;
+}
+
+%button {
+  border: 0;
+  padding: 0;
+  background-color: none;
+}
+
+/* Placeholders -> Layout -> Base Post / Article
+   ========================================================================== */
+
+%l-post__header,
+%l-post__body {
+  width: 100%;
+  position: relative;
+}
+
+%l-post__header {
+  max-width: $l-article-header;
+}
+
+%l-post__content {
+  @include padding(x 21px);
+
+  @include mq($bp-tablet-vert) {
+    @include padding(x 48px);
+  }
+
+  @include mq($bp-tablet-horiz) {
+    @include padding(x 60px);
+  }
+}
+
+%l__img--fullbleed {
+  width: 100vw !important;
+  max-width: none !important;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  img {
+    width: 100%;
+  }
+}

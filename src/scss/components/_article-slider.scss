@@ -1,0 +1,42 @@
+/* ==========================================================================
+
+   Components -> Article Slider
+
+   ========================================================================== */
+
+.article-slider {
+  border: 2px solid $c-blue--dark;
+  box-shadow: 5px 5px 0px 0 $c-blue--dark;
+
+  @include mq($bp-tablet-horiz) {
+    border-width: 3px;
+  }
+
+  .slick-dots {
+    bottom: 62px;
+  }
+
+  .article-slider__figure {
+    img {
+      max-width: 100% !important;
+    }
+  }
+}
+
+
+/* Article Slider -> Reversed
+   ========================================================================== */
+
+.article--dark {
+
+  .article-slider {
+    border: 2px solid $c-blue--dark;
+    box-shadow: 5px 5px 0px 0 $c-white;
+    background-color: $c-white;
+
+    .caption {
+      color: $c-blue--dark;
+      border: 0;
+    }
+  }
+}

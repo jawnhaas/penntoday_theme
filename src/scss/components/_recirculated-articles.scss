@@ -1,0 +1,161 @@
+// /* ==========================================================================
+
+//    Components -> Recirculated Articles
+
+//    ========================================================================== */
+
+.article__related {
+  width: 100%;
+}
+
+.related-feature {
+  position: relative;
+  width: 100%;
+}
+
+.related-feature__img-wrapper {
+  overflow: hidden;
+  background-color: $c-blue--dark;
+}
+
+.related-feature__img {
+  height: 400px;
+  background-image: url("/static/img/mind-control-illustration.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: all 0.4s $easeInOutExpo;
+  opacity: .5;
+
+  @include mq($bp-tablet-vert) {
+    height: 450px;
+  }
+}
+
+.related-feature__tease {
+  position: absolute;
+  top: 70px;
+  padding: 0 20px;
+  text-align: center;
+
+  @include mq($bp-tablet-vert) {
+    top: 100px;
+    left: calc(50% - 350px);
+    max-width: $l-article-body;
+  }
+}
+
+.related-feature-heading {
+  display: inline-block;
+  @include margin(x x 40px x);
+  padding: 10px;
+  border: 2px solid $c-red;
+  @include haptik(bold);
+  font-size: $f-size-mini;
+  color: $c-red--dark;
+  background-color: white;
+  box-shadow: -3px 3px 0px 0 $c-red;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-base;
+  }
+}
+
+.related-feature__link {
+  @extend %f-a;
+  color: $c-white;
+
+  &:hover .related-feature__img {
+    transform: scale(1.05);
+  }
+}
+
+.related-feature__title {
+  @include saolDisplay(semi-bold);
+  font-size: $f-size-h3;
+  line-height: $f-line-height-h3;
+  color: $c-white;
+
+  @include mq($bp-tablet-vert) {
+    font-size: $f-size-h2;
+    line-height: $f-line-height-h2;
+  }
+}
+
+/* Article -> Recirculated Articles List
+   ========================================================================== */
+
+.related-tease-list {
+  @extend %l-base__top-padding;
+  background-color: $c-blue--dark;
+
+  .l-article-stream {
+    position: relative;
+    @include padding(x x 48px x);
+
+    @include mq($bp-tablet-vert) {
+      @include padding(x x 64px x);
+    }
+
+    @include mq($bp-tablet-horiz) {
+      @include padding(x x 84px x);
+    }
+
+    @include mq($bp-desktop) {
+      margin: 0 -30px;
+    }
+
+    &:after {
+      content: "";
+      width: 100%;
+      border-bottom: 1px solid $c-blue--desat;
+      @include absolute(x 0 0 0);
+
+      @include mq($bp-desktop) {
+        margin-left: 30px;
+        margin-right: 30px;
+      }
+    }
+  }
+
+  .tease {
+    color: $c-white;
+    &:nth-child(even),
+    &:nth-child(odd),
+    &:nth-child(-n+2) {
+      border-color: $c-blue--desat;
+
+      .tease__inner-content {
+        border-color: $c-blue--desat;
+      }
+    }
+  }
+
+  .tease__meta {
+    color: $c-silver-blue;
+  }
+
+  .tease__dek {
+    color: $c-white;
+  }
+
+  .tease__link {
+    @extend %f-link;
+    @extend %f-link-reset;
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 0 0 $c-red;
+    transition: all 0.2s $easeOutQuad;
+
+    .no-touchevents &:hover,
+    &:focus {
+      color: $c-white;
+      box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 2px 0 $c-red;
+    }
+  }
+
+}
+
+
+
+
+
+

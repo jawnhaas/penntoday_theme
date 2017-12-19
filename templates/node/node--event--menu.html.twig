@@ -1,0 +1,22 @@
+<div class="site-nav__event">
+  <article class="site-nav__event-content">
+    <div class="site-nav-event__date-container">
+      <p class="site-nav-event__date"><?php print $event_startdate; ?></p>
+    </div>
+    <div class="site-nav-event__text">
+      <a class="site-nav-event__link" href="<?php print $node_url ?>" tabindex="0">
+        <h3 class="site-nav-event__head">{{ label }}</h3>
+        <div class="site-nav-event__img-container">
+          <?php $content['field_image'][0]['#item']['attributes']['class'][] = 'site-nav-event__img'; ?>
+          <?php print render($content['field_image']); ?>
+        </div>
+        <p class="site-nav-event__dek">{{ content.body }}</p>
+        <p class="site-nav-event__time"><?php print $event_time; ?></p>
+        <p class="site-nav-event__location"><?php print render($content['field_location']); ?></p>
+        <?php if($event_through) : ?>
+          <p class="site-nav-event__end"><?php print $event_through; ?></p>
+        <?php endif; ?>
+      </a>
+    </div>
+  </article>
+</div>

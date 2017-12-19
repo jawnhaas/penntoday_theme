@@ -1,0 +1,15 @@
+<div {{ attributes }}>
+<article class="simple-tease multimedia-tease multimedia-tease--gallery">
+  <div class="simple-tease__wrapper">
+      <div class="simple-tease__img-wrapper">
+        <a class="simple-tease__link" href="">
+          <img class="simple-tease__img" src="<?php print render($content['field_thumbnail']); ?>" alt=""/>
+        </a>
+      </div>
+    <div class="simple-tease__text">
+      <?php print render($content['field_primary_subject']); ?>
+      <h1 class="simple-tease__head"><a class="simple-tease__link" href=""><?php print strip_tags(render($content['field_name'])); ?></a></h1>
+    </div>
+  </div>
+</article>
+</div>

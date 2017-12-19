@@ -1,0 +1,106 @@
+/* ==========================================================================
+
+   Base -> Base Forms
+
+   ========================================================================== */
+
+label,
+.label {
+  display: block;
+  @include haptik(bold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 6px;
+  font-size: $f-size-micro;
+}
+
+.label--inline {
+  display: inline-block;
+}
+
+input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio]):not([type=search]), textarea {
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  max-width: 100%;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 2px solid $c-blue--dark;
+  padding: 8px 0;
+  @include haptik(regular);
+  font-size: $f-size-base;
+  line-height: $f-line-height-base--sans;
+  width: 100%;
+}
+
+input:not([type=submit]):not([type=file]):not([type=checkbox]):not([type=radio]):not([type=search]):invalid,
+input:invalid {
+  border-bottom: 2px solid $c-red--dark;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  display: inline-block;
+  margin-right: 6px;
+}
+
+textarea {
+  min-height: 120px;
+  min-width: 300px;
+}
+
+.error-messages {
+  padding-top: 12px;
+  p {
+    @include haptik(bold);
+    color: $c-red--dark;
+    font-size: $f-size-mini;
+  }
+}
+
+button {
+  @extend %f-smallcaps;
+  @include haptik(bold);
+  color: $c-blue--dark;
+  background-color: transparent;
+  border: 3px solid $c-blue--dark;
+  padding: 12px 20px;
+  box-shadow: 3px 3px 0px 0 $c-blue--dark;
+  cursor: pointer;
+  transition: all 0.1s $easeInOutQuad;
+  border-radius: 0;
+
+  &:hover {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+  }
+}
+
+button:disabled {
+  box-shadow: none;
+  color: $c-silver-blue;
+  border-color: $c-silver-blue;
+
+  &:hover {
+    transform: translate(0);
+    cursor: not-allowed;
+  }
+}
+
+select {
+  @include haptik(bold);
+  background: $c-white;
+  border: 2px solid $c-blue--dark;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 12px 30px 12px 12px;
+  width: 100%;
+  @include svg(toggle-arrow, 98% center, transparent, 18px);
+  font-size: $f-size-mini;
+}

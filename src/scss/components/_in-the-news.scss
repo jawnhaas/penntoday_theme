@@ -1,0 +1,113 @@
+/* ==========================================================================
+
+   Components -> Penn in the News
+
+   ========================================================================== */
+
+.penn-in-news {
+  @extend %l-base__bottom-margin;
+}
+
+.news-slider__head {
+  @include margin(x x 20px x);
+  @include haptik(bold);
+  @extend %f-smallcaps;
+  font-size: $f-size-h4;
+  line-height: $f-line-height-h4--sans;
+  text-align: center;
+  color: $c-blue--dark;
+
+  @include mq($bp-tablet-vert) {
+    @include margin(x x 45px x);
+  }
+}
+
+.news-slider__link {
+  @extend %f-a;
+  font-family: 'Georgia';
+  font-size: $f-size-base;
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+
+}
+
+.penn-in-news__item {
+  @extend %f-a;
+  display: block;
+  width: 300px;
+  @include padding(15px);
+  border: 3px solid $c-blue--dark;
+  box-shadow: 6px 6px 0px 0 $c-blue--dark;
+  @include haptik(regular);
+  font-size: $f-size-mini;
+  line-height: $f-line-height-mini--sans;
+  transition: all 0.4s $easeInOutExpo;
+
+  @include mq($bp-tablet-vert) {
+    @include padding(25px);
+  }
+
+  &:hover,
+  &:focus {
+    border-color: $c-blue--medium;
+    box-shadow: 8px 8px 0px 0 $c-blue--medium;
+
+    .penn-in-news__cta {
+      color: $c-blue--medium;
+    }
+  }
+}
+
+.penn-in-news__date {
+  @include margin(0 x 35px x);
+  @include haptik(bold);
+  font-size: $f-size-mini;
+}
+
+.penn-in-news__source {
+  @include margin(x x 30px x);
+}
+
+.penn-in-news__source__logo {
+  display: block;
+  max-height: 40px;
+  width: auto;
+  max-width: 100%;
+  @include margin(x auto);
+}
+
+.penn-in-news__item-head {
+  @include margin(x x 5px x);
+  font-size: $f-size-h6;
+  line-height: $f-line-height-h6--sans;
+  color: $c-blue--medium;
+
+  @include mq($bp-desktop) {
+    font-size: $f-size-h5;
+    line-height: $f-line-height-h5--sans;
+  }
+}
+
+.penn-in-news__item-dek {
+  @include margin(0 x 15px x);
+  @include haptik(regular);
+  font-size: $f-size-mini;
+  line-height: $f-line-height-h5--sans;
+}
+
+.penn-in-news__cta {
+  @include margin(0);
+  @include haptik(bold);
+  font-size: $f-size-mini;
+  margin-top: auto;
+}
+
+
+.penn-in-news {
+  .slick-track {
+    padding: 10px 0;
+    display: flex;
+  }
+}
